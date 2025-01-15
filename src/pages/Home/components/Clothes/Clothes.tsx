@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Container } from "@/components/ui";
-import { ClothesItem } from "./conponents";
+import { ClothesItem } from "./components";
 
 import { useGetClothes } from "@/hooks/getClothes";
 
