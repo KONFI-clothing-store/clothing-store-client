@@ -9,6 +9,7 @@ export default {
       },
       screens: {
         "max-md": { max: "767.98px" },
+        "max-md579": { max: "579.98px" },
         "max-md654": { max: "653.98px" },
         "max-md1024": { max: "1023.98px" },
         "max-md1150": { max: "1149.98px" },
@@ -22,6 +23,7 @@ export default {
             200: "#CCCCCC",
             300: "#F2F0F1",
             400: "#F0EEED",
+            600: "#606060",
           },
         };
       },

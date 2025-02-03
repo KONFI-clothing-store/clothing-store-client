@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { useNavigate } from "react-router-dom";
 
-import { Container, Icon } from "@/components/ui";
+import { Button, Container, Icon } from "@/components/ui";
 
 import models from "@/../public/images/models.png";
 
@@ -24,12 +24,12 @@ export const Intro: React.FC<Props> = ({ className }) => {
             Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality
             and cater to your sense of style.
           </p>
-          <button
+          <Button
             onClick={() => navigate("/shop")}
-            className="bg-black mt-[37px] font-medium text-white py-[15px] px-[67.5px] rounded-[62px] hover:bg-gray-600 duration-500 max-md:w-full"
+            className="mt-[37px] py-[15px] px-[67.5px] max-md:w-full"
           >
             Shop Now
-          </button>
+          </Button>
         </div>
 
         <div className="max-w-[620px] relative max-md1024:max-w-[400px]">

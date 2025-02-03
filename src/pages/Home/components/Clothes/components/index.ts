@@ -1,1 +1,1 @@
-export * from "./ClothesItem/ClothesItem";
+export * from "./ClothesCard/ClothesCard";
