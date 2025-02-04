@@ -61,7 +61,7 @@ export const CommentsSlider: React.FC<Props> = () => {
       >
         {commentsData.map((el: CommentType) => (
           <SwiperSlide key={el.id}>
-            <Comment commentData={el} />
+            <Comment  commentData={el} />
           </SwiperSlide>
         ))}
       </Swiper>

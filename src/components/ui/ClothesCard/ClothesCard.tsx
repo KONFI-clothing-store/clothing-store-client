@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Rating } from "@/components/ui";
 
-import type { ClothesCardType } from "../../Clothes";
+import type { ClothesCardType } from "../../../pages/Home/components/Clothes/Clothes";
 
 interface Props {
   className?: string;
@@ -15,7 +15,7 @@ export const ClothesCard: React.FC<Props> = ({ item, className }) => {
   const { name, price, image_url, rating, id, type } = item;
 
   return (
-    <Link to={`/shop/${type}/${id}`} className={cn(className, "max-w-[298px]")}>
+    <Link to={`/shop/${type}s/${id}`} className={cn(className, "max-w-[298px]")}>
       <div className="w-full grid place-items-center bg-gray-400 rounded-[20px] overflow-hidden">
         <img src={image_url} className="" alt={name} />
       </div>

@@ -14,7 +14,7 @@ export const ChoosePrice: React.FC<Props> = ({ className }) => {
       <h5 className="text-lg font-bold mb-5">Price</h5>
 
       <div className="grid gap-y-2">
-        <div className="flex justify-between items-end">
+        <div className="flex justify-between items-end gap-2">
           <p className="text-lg">from</p>
           <input
             type="number"
@@ -26,7 +26,7 @@ export const ChoosePrice: React.FC<Props> = ({ className }) => {
           />
         </div>
 
-        <div className="flex justify-between items-end">
+        <div className="flex justify-between items-end gap-2">
           <p className="text-lg">to</p>
           <input
             type="number"

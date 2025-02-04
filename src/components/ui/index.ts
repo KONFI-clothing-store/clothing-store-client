@@ -5,3 +5,4 @@ export * from "./Button/Button";
 export * from "./Rating/Rating";
 export * from "./ChooseSize/ChooseSize";
 export * from "./Comment/Comment";
+export * from "./ClothesCard/ClothesCard";

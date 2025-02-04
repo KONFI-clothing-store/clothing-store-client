@@ -15,12 +15,12 @@ export const FilterBar: React.FC<Props> = ({ className }) => {
 
       <hr className="my-6" />
 
-      <div>
+      {/* <div>
         <h5 className="text-lg font-bold mb-5">Type</h5>
         <ChooseSize className="w-full" isTitle={false} sizes={["All", "T-shirt", "Shirt", "Jeans", "Shorts"]} />
       </div>
 
-      <hr className="my-6" />
+      <hr className="my-6" /> */}
 
       <ChoosePrice />
 
