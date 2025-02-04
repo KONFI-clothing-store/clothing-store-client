@@ -1,13 +1,4 @@
-export type ClothesComment = {
-  id: number;
-  clothes_item_id: number;
-  comment: string;
-  rating: string;
-  first_name: string;
-  second_name: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import type { Comment } from "@/components/ui/Comment/Comment.types";
 
 export type ClothesItemType = {
   id: number;
@@ -15,10 +6,10 @@ export type ClothesItemType = {
   images_url: string[];
   price: string;
   rating: string;
-  type: 't-shirt' | 'shirt' | 'jeans';
+  type: "t-shirt" | "shirt" | "jeans";
   description: string;
   sizes: string[];
-  comments: ClothesComment[];
+  comments: Comment[];
   createdAt: string;
   updatedAt: string;
 };

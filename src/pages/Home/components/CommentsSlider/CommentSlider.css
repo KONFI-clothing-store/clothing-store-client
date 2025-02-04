@@ -1,0 +1,3 @@
+.swiper-android .swiper-slide, .swiper-ios .swiper-slide, .swiper-wrapper {
+    height: auto;
+}
