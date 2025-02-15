@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { Comment } from "@/components/ui";
+import { Comment } from '@/components/ui';
 
-import type { CommentType } from "@/components/ui/Comment/Comment.types";
+import type { CommentType } from '@/components/ui/Comment/Comment.types';
 
 interface Props {
   comments: CommentType[];
@@ -12,9 +12,9 @@ interface Props {
 export const CommentsItem: React.FC<Props> = ({ comments, className }) => {
   return (
     <section className={className}>
-      <h2 className="text-xl mb-8">All reviews ({comments.length})</h2>
+      <h2 className='text-xl mb-8'>All reviews ({comments.length})</h2>
 
-      <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+      <div className='grid grid-cols-2 gap-5 max-md:grid-cols-1'>
         {comments.map((el: CommentType) => (
           <Comment commentData={el} />
         ))}

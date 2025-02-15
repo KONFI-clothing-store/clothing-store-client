@@ -1,7 +1,7 @@
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 
-import type { ClothesCardType } from "@/pages/Home/components";
+import type { ClothesCardType } from '@/pages/Home/components';
 
 export const useGetClothes = () => {
   const [data, setData] = React.useState<ClothesCardType[]>([]);
@@ -13,10 +13,10 @@ export const useGetClothes = () => {
         limit: number;
         offset: number;
         order?: string;
-      }
+      },
     ) => {
       axios({
-        method: "GET",
+        method: 'GET',
         url,
         params,
       }).then((res) =>
@@ -27,10 +27,10 @@ export const useGetClothes = () => {
             return res.data;
           }
           return [...prevState, ...res.data];
-        })
+        }),
       );
     },
-    []
+    [],
   );
 
   return { data, getData };

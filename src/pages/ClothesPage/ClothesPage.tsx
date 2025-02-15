@@ -1,12 +1,12 @@
-import React from "react";
-import cn from "classnames";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import React from 'react';
+import cn from 'classnames';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
-import { ClothesItem, CommentsItem } from "./components";
-import { Container, Breadcrumb } from "@/components/ui";
+import { ClothesItem, CommentsItem } from './components';
+import { Container, Breadcrumb } from '@/components/ui';
 
-import { ClothesItemType } from "./components/ClothesItem/ClothesItem.types";
+import { ClothesItemType } from './components/ClothesItem/ClothesItem.types';
 
 interface Props {
   className?: string;
@@ -14,14 +14,16 @@ interface Props {
 
 export const ClothesPage: React.FC<Props> = ({ className }) => {
   const { id } = useParams();
-  const [clothesItemData, setClothesItemData] = React.useState<ClothesItemType | undefined>(undefined);
+  const [clothesItemData, setClothesItemData] = React.useState<
+    ClothesItemType | undefined
+  >(undefined);
 
   React.useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios({
-          method: "get",
-          url: `${import.meta.env.VITE_API_BASE_URL}/clothes_items/${id}`,
+          method: 'get',
+          url: `${import.meta.env.VITE_API_BASE_URL}/clothes/${id}`,
         });
 
         setClothesItemData(response.data);
@@ -37,12 +39,13 @@ export const ClothesPage: React.FC<Props> = ({ className }) => {
     return <div>Loading...</div>;
   }
 
-  const { name, images_url, price, rating, description, sizes, comments } = clothesItemData;
+  const { name, images_url, price, rating, description, sizes, comments } =
+    clothesItemData;
 
   return (
-    <div className={cn(className, "")}>
+    <div className={cn(className, '')}>
       <Container>
-        <hr className="mb-6" />
+        <hr className='mb-6' />
 
         <Breadcrumb />
 
@@ -53,10 +56,10 @@ export const ClothesPage: React.FC<Props> = ({ className }) => {
           rating={rating}
           description={description}
           sizes={sizes}
-          className="mt-6 mb-20"
+          className='mt-6 mb-20'
         />
 
-        <CommentsItem className="mb-16" comments={comments} />
+        <CommentsItem className='mb-16' comments={comments} />
       </Container>
     </div>
   );

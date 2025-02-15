@@ -1,7 +1,9 @@
-.swiper-android .swiper-slide, .swiper-ios .swiper-slide, .swiper-wrapper, .swiper-backface-hidden .swiper-slide {
-    height: auto;
+.swiper-android .swiper-slide,
+.swiper-ios .swiper-slide,
+.swiper-wrapper,
+.swiper-backface-hidden .swiper-slide {
+  height: auto;
 }
 
 .swiper-backface-hidden .swiper-slide {
-    
 }

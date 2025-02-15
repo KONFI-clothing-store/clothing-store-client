@@ -1,24 +1,29 @@
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 
-import { Comment, Container } from "@/components/ui";
+import { Comment, Container } from '@/components/ui';
 
-import type { CommentType } from "@/components/ui/Comment/Comment.types";
+import type { CommentType } from '@/components/ui/Comment/Comment.types';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "./CommentSlider.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import './CommentSlider.css';
 
 interface Props {
   className?: string;
 }
 
 export const CommentsSlider: React.FC<Props> = () => {
-  const [commentsData, setCommentsData] = React.useState<CommentType[] | []>([]);
+  const [commentsData, setCommentsData] = React.useState<CommentType[] | []>(
+    [],
+  );
   const [width, setWidth] = React.useState(0);
 
   const updateWidth = () => {
-    const fullDocumentWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
+    const fullDocumentWidth = Math.max(
+      document.documentElement.scrollWidth,
+      document.body.scrollWidth,
+    );
     setWidth(fullDocumentWidth);
   };
 
@@ -26,7 +31,7 @@ export const CommentsSlider: React.FC<Props> = () => {
     const getComments = async () => {
       try {
         const res = await axios({
-          method: "get",
+          method: 'get',
           url: `${import.meta.env.VITE_API_BASE_URL}/comments`,
         });
 
@@ -39,7 +44,7 @@ export const CommentsSlider: React.FC<Props> = () => {
     getComments();
     updateWidth();
   }, []);
-  console.log("width:", width);
+  console.log('width:', width);
 
   if (!commentsData) {
     return <p>Loading...</p>;
@@ -57,11 +62,11 @@ export const CommentsSlider: React.FC<Props> = () => {
         pagination={{
           clickable: true,
         }}
-        className="mySwiper"
+        className='mySwiper'
       >
         {commentsData.map((el: CommentType) => (
           <SwiperSlide key={el.id}>
-            <Comment  commentData={el} />
+            <Comment commentData={el} />
           </SwiperSlide>
         ))}
       </Swiper>

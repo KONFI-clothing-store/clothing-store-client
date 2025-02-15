@@ -1,5 +1,6 @@
-import React from "react";
-import cn from "classnames";
+import React from 'react';
+import cn from 'classnames';
+import { useFilter } from '@/zustand/filter';
 
 interface Props {
   sizes: string[];
@@ -7,22 +8,30 @@ interface Props {
   className?: string;
 }
 
-export const ChooseSize: React.FC<Props> = ({ isTitle = true, sizes, className }) => {
-  const [choice, setChoice] = React.useState<string>("");
+export const ChooseSize: React.FC<Props> = ({
+  isTitle = true,
+  sizes,
+  className,
+}) => {
+  const [choice, setChoice] = React.useState<string>('');
+  const addSizeToFilter = useFilter((state) => state.addSizeToFilter);
 
   const changeSize = (size: string) => {
+    addSizeToFilter(size);
     setChoice(size);
   };
 
   return (
-    <div className={cn(className, "")}>
-      {isTitle && <p className="opacity-60 mb-5">Choose Size</p>}
+    <div className={cn(className, '')}>
+      {isTitle && <p className='opacity-60 mb-5'>Choose Size</p>}
 
-      <div className="flex flex-wrap gap-3">
+      <div className='flex flex-wrap gap-3'>
         {sizes.map((size) => (
           <button
             className={`px-6 py-3 rounded-[62px] duration-500 ${
-              choice === size ? "bg-black text-white" : "bg-gray-100 text-gray-600"
+              choice === size
+                ? 'bg-black text-white'
+                : 'bg-gray-100 text-gray-600'
             } hover:bg-black hover:text-white duration-500`}
             key={size}
             onClick={() => changeSize(size)}

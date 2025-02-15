@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import sprite from "@/../public/sprite.svg";
+import sprite from '@/../public/sprite.svg';
 
 interface Props {
   name: string;

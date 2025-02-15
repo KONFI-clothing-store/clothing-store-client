@@ -1,2 +1,2 @@
-export * from "./FilterBar/FilterBar";
-export * from "./GetClothesByPage/GetClothesByPage";
+export * from './FilterBar/FilterBar';
+export * from './GetClothesByPage/GetClothesByPage';

@@ -1,2 +1,2 @@
-export * from "./ClothesItem/ClothesItem";
-export * from "./CommentsItem/CommentsItem";
+export * from './ClothesItem/ClothesItem';
+export * from './CommentsItem/CommentsItem';
