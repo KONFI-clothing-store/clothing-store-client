@@ -1,18 +1,19 @@
-import React from 'react';
-import axios from 'axios';
+import React from 'react'
 
-import type { ClothesCardType } from '@/pages/Home/components';
+import axios from 'axios'
+
+import type { ClothesCardType } from '@/pages/Home/components'
 
 export const useGetClothes = () => {
-  const [data, setData] = React.useState<ClothesCardType[]>([]);
+  const [data, setData] = React.useState<ClothesCardType[]>([])
 
   const getData = React.useCallback(
     (
       url: string,
       params: {
-        limit: number;
-        offset: number;
-        order?: string;
+        limit: number
+        offset: number
+        order?: string
       },
     ) => {
       axios({
@@ -21,17 +22,17 @@ export const useGetClothes = () => {
         params,
       }).then((res) =>
         setData((prevState: ClothesCardType[]) => {
-          if (!res.data.length) return prevState;
+          if (!res.data.length) return prevState
 
           if (prevState[0]?.name === res.data[0].name) {
-            return res.data;
+            return res.data
           }
-          return [...prevState, ...res.data];
+          return [...prevState, ...res.data]
         }),
-      );
+      )
     },
     [],
-  );
+  )
 
-  return { data, getData };
-};
+  return { data, getData }
+}

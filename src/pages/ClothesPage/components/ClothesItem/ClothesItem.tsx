@@ -1,55 +1,85 @@
-import React from 'react';
-import cn from 'classnames';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import { ChooseSize, ActionsForAddCart, ShowImages } from './components';
-import { Button, Rating } from '@/components/ui';
+import cn from 'classnames'
+import { toast } from 'sonner'
+
+import { ActionsForAddCart, Button, ChooseSize, Rating } from '@/components/ui'
+import { useCart } from '@/zustand/cart'
+
+import { ShowImages } from './components'
 
 interface Props {
-  name: string;
-  price: string;
-  images_url: string[];
-  sizes: string[];
-  rating: string;
-  description: string;
-  className?: string;
+  name: string
+  price: string
+  images_url: string[]
+  sizes: string[]
+  rating: string
+  description: string
+  className?: string
 }
 
 export const ClothesItem: React.FC<Props> = (props) => {
+  const [size, setSize] = React.useState<string>('')
+  const [count, setCount] = React.useState<number>(1)
+
+  const { clothesCards, addItemToCart } = useCart((state) => state)
+
+  console.log('clothesCards:', clothesCards)
+
+  const addCLothesToCart = () => {
+    addItemToCart(props.name, size, props.price, props.images_url[0], count)
+
+    toast('Clothes added to cart', {
+      description: <Link to='/cart'>GO TO CART</Link>,
+      action: {
+        label: 'X',
+        onClick: () => console.log('Undo'),
+      },
+    })
+  }
+
   return (
     <section
       className={cn(
         props.className,
-        'flex items-stretch gap-x-10  max-md1024:flex-col max-md1024:items-center max-md1024:gap-y-10',
+        'flex items-stretch gap-x-10 max-lg:flex-col max-lg:items-center max-lg:gap-y-10',
       )}
     >
       <ShowImages className='' images={props.images_url} />
 
       <div className='flex-1'>
-        <h2 className='text-3xl font-integral_cf mb-3 max-md1205:text-2xl'>
+        <h2 className='mb-3 font-integral_cf text-3xl max-xl:text-2xl'>
           {props.name}
         </h2>
-        <div className='flex items-center gap-x-1 mb-3'>
+        <div className='mb-3 flex items-center gap-x-1'>
           <Rating rating={props.rating} />
           <p className='text-lg'>
             {props.rating}/<span className='opacity-60'>5</span>
           </p>
         </div>
 
-        <p className='text-2xl font-bold mb-3'>${props.price}</p>
+        <p className='mb-3 text-2xl font-bold'>${props.price}</p>
 
         <p className='opacity-60'>{props.description}</p>
 
         <hr className='my-6' />
 
-        <ChooseSize sizes={props.sizes} />
+        <ChooseSize sizes={props.sizes} handleChangeSize={setSize} />
 
         <hr className='my-6' />
 
         <div className='flex gap-x-5'>
-          <ActionsForAddCart />
-          <Button className='w-full'>Add to Cart</Button>
+          <ActionsForAddCart count={count} setCount={setCount} />
+          <Button
+            disabled={size === ''}
+            className='w-full'
+            onClick={addCLothesToCart}
+          >
+            Add to Cart
+          </Button>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

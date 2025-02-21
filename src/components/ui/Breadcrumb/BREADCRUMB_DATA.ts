@@ -4,4 +4,5 @@ export const BREADCRUMB_DATA = [
   { path: '/shop/shirts', text: 'Shirts' },
   { path: '/shop/jeans', text: 'Jeans' },
   { path: '/shop/shorts', text: 'Shorts' },
-];
+  { path: '/cart', text: 'Cart' },
+]

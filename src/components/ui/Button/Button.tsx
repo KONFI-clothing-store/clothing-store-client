@@ -1,10 +1,11 @@
-import React from 'react';
-import cn from 'classnames';
+import React from 'react'
+
+import cn from 'classnames'
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  color?: 'black' | 'white';
-  children: React.ReactNode;
-  className?: string;
+  color?: 'black' | 'white'
+  children: React.ReactNode
+  className?: string
 }
 
 export const Button: React.FC<Props> = ({
@@ -18,10 +19,10 @@ export const Button: React.FC<Props> = ({
       {...props}
       className={cn(
         className,
-        `rounded-[62px] font-medium bg-${color} ${color === 'black' ? 'text-white' : 'text-black'} hover:bg-gray-600 duration-500`,
+        `rounded-[62px] font-medium bg-${color} ${color === 'black' ? 'text-white' : 'text-black'} duration-500 hover:bg-gray-600`,
       )}
     >
       {children}
     </button>
-  );
-};
+  )
+}

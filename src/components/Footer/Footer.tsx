@@ -1,48 +1,48 @@
-import React from 'react';
-import cn from 'classnames';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import { Container, Icon } from '../ui';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
-import { Form } from './components';
+import cn from 'classnames'
+import { Facebook, Instagram, Twitter } from 'lucide-react'
 
-import { PAYMENT_ITEMS } from './iconItems';
+import { Container, Icon } from '../ui'
+import { Form } from './components'
+import { PAYMENT_ITEMS } from './iconItems'
 
 interface Props {
-  className?: string;
+  className?: string
 }
 
 export const Footer: React.FC<Props> = ({ className }) => {
   return (
-    <footer className={cn(className, 'bg-gray-100 py-20 max-md654:py-5')}>
+    <footer className={cn(className, 'bg-gray-100 py-20 max-sm:py-5')}>
       <Container>
-        <div className='flex items-start justify-between gap-x-6 max-md654:grid max-md654:gap-y-4'>
+        <div className='flex items-start justify-between gap-x-6 max-sm:grid max-sm:gap-y-4'>
           <div className=''>
-            <Link to='/' className='font-integral_cf text-2xl relative z-50 '>
+            <Link to='/' className='relative z-50 font-integral_cf text-2xl'>
               SHOP.CO
             </Link>
-            <p className='w-[248px] text-sm opacity-60 mt-[25px] max-md654:mt-4'>
+            <p className='mt-[25px] w-[248px] text-sm opacity-60 max-sm:mt-4'>
               We have clothes that suits your style and which you’re proud to
               wear. From women to men.
             </p>
 
-            <div className='flex items-center gap-x-3 mt-[35px] max-md654:mt-5'>
+            <div className='mt-[35px] flex items-center gap-x-3 max-sm:mt-5'>
               <Link
-                className='grid place-items-center rounded-full w-7 h-7 bg-white border border-gray-200'
+                className='grid h-7 w-7 place-items-center rounded-full border border-gray-200 bg-white'
                 target='_blank'
                 to='https://x.com/?lang=en-&mx=2'
               >
                 <Twitter size={11} />
               </Link>
               <Link
-                className='grid place-items-center rounded-full w-7 h-7 bg-black'
+                className='grid h-7 w-7 place-items-center rounded-full bg-black'
                 target='_blank'
                 to='https://www.facebook.com/?locale=uk_UA'
               >
                 <Facebook color='white' size={15} />
               </Link>
               <Link
-                className='grid place-items-center rounded-full w-7 h-7 bg-white border border-gray-200'
+                className='grid h-7 w-7 place-items-center rounded-full border border-gray-200 bg-white'
                 target='_blank'
                 to='https://x.com/?lang=en-&mx=2'
               >
@@ -51,8 +51,8 @@ export const Footer: React.FC<Props> = ({ className }) => {
             </div>
           </div>
 
-          <div className='flex flex-col items-end max-md654:items-center'>
-            <p className='font-integral_cf text-2xl mb-[25px] max-md:text-xl'>
+          <div className='flex flex-col items-end max-sm:items-center'>
+            <p className='mb-[25px] font-integral_cf text-2xl max-md:text-xl'>
               STAY UPTO DATE ABOUT OUR LATEST OFFERS
             </p>
 
@@ -60,9 +60,9 @@ export const Footer: React.FC<Props> = ({ className }) => {
           </div>
         </div>
 
-        <div className='w-full h-[1px] bg-gray-200 mt-[50px] mb-[25px] max-md654:mt-[30px] max-md654:mb-[15px]' />
+        <div className='mb-[25px] mt-[50px] h-[1px] w-full bg-gray-200 max-sm:mb-[15px] max-sm:mt-[30px]' />
 
-        <div className='flex items-center justify-between max-md654:flex-col max-md654:gap-y-3'>
+        <div className='flex items-center justify-between max-sm:flex-col max-sm:gap-y-3'>
           <p className='text-sm opacity-60'>
             Shop.co © 2000-2023, All Rights Reserved
           </p>
@@ -70,15 +70,15 @@ export const Footer: React.FC<Props> = ({ className }) => {
           <div className='flex items-center gap-x-3'>
             {PAYMENT_ITEMS.map((item) => (
               <div
-                className='w-[46px] h-[30px] bg-white rounded-[5.38px] px-1.5 py-[8px]'
+                className='h-[30px] w-[46px] rounded-[5.38px] bg-white px-1.5 py-[8px]'
                 key={item.id}
               >
-                <Icon className='w-full h-full' name={item.name} />
+                <Icon className='h-full w-full' name={item.name} />
               </div>
             ))}
           </div>
         </div>
       </Container>
     </footer>
-  );
-};
+  )
+}

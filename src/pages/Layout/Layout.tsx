@@ -1,10 +1,11 @@
-import React from 'react';
+import React from 'react'
+import { Outlet } from 'react-router-dom'
 
-import { Header, Footer } from '@/components';
-import { Outlet } from 'react-router-dom';
+import { Footer, Header } from '@/components'
+import { Toaster } from '@/components/ui'
 
 interface Props {
-  className?: string;
+  className?: string
 }
 
 export const Layout: React.FC<Props> = () => {
@@ -13,8 +14,9 @@ export const Layout: React.FC<Props> = () => {
       <Header />
       <main className='flex-grow'>
         <Outlet />
+        <Toaster className='bg-black' />
       </main>
       <Footer />
     </>
-  );
-};
+  )
+}

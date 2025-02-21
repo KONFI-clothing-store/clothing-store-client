@@ -1,28 +1,29 @@
-import React from 'react';
-import cn from 'classnames';
+import React from 'react'
+
+import cn from 'classnames'
 
 interface Props {
-  images: string[];
-  className?: string;
+  images: string[]
+  className?: string
 }
 
 export const ShowImages: React.FC<Props> = ({ images, className }) => {
-  const [activeIndex, setActiveIndex] = React.useState<number>(0);
-  console.log('activeIndex:', activeIndex);
+  const [activeIndex, setActiveIndex] = React.useState<number>(0)
+  console.log('activeIndex:', activeIndex)
 
   return (
     <div
       className={cn(
         className,
-        'flex gap-[14px] w-[610px] max-md1024:flex-col max-md1024:max-w-[550px] max-md579:w-full',
+        'flex w-[610px] gap-[14px] max-lg:max-w-[550px] max-lg:flex-col max-sm:w-full',
       )}
     >
-      <div className='grid gap-[14px] w-[25%] max-md1024:order-2 max-md1024:flex max-md1024:w-auto'>
+      <div className='grid w-[25%] gap-[14px] max-lg:order-2 max-lg:flex max-lg:w-auto'>
         {images.map((image, index) => (
           <button
-            className={`bg-gray-100 rounded-[20px] overflow-hidden ${
+            className={`overflow-hidden rounded-[20px] bg-gray-100 ${
               activeIndex === index && 'outline outline-black'
-            } max-md1024:w-[33%]`}
+            } max-lg:w-[33%]`}
             onClick={() => setActiveIndex(index)}
           >
             <img
@@ -33,11 +34,11 @@ export const ShowImages: React.FC<Props> = ({ images, className }) => {
         ))}
       </div>
       <img
-        className='w-[73%] rounded-[20px] max-md1024:order-1 max-md1024:w-full'
+        className='w-[73%] rounded-[20px] max-lg:order-1 max-lg:w-full'
         src={
           import.meta.env.VITE_API_BASE_URL + '/files/' + images[activeIndex]
         }
       />
     </div>
-  );
-};
+  )
+}

@@ -1,22 +1,23 @@
-import React from 'react';
-import cn from 'classnames';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react'
+import { useParams } from 'react-router-dom'
 
-import { ClothesItem, CommentsItem } from './components';
-import { Container, Breadcrumb } from '@/components/ui';
+import axios from 'axios'
+import cn from 'classnames'
 
-import { ClothesItemType } from './components/ClothesItem/ClothesItem.types';
+import { Breadcrumb, Container } from '@/components/ui'
+
+import { ClothesItem, CommentsItem } from './components'
+import { ClothesItemType } from './components/ClothesItem/ClothesItem.types'
 
 interface Props {
-  className?: string;
+  className?: string
 }
 
 export const ClothesPage: React.FC<Props> = ({ className }) => {
-  const { id } = useParams();
+  const { id } = useParams()
   const [clothesItemData, setClothesItemData] = React.useState<
     ClothesItemType | undefined
-  >(undefined);
+  >(undefined)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -24,23 +25,23 @@ export const ClothesPage: React.FC<Props> = ({ className }) => {
         const response = await axios({
           method: 'get',
           url: `${import.meta.env.VITE_API_BASE_URL}/clothes/${id}`,
-        });
+        })
 
-        setClothesItemData(response.data);
+        setClothesItemData(response.data)
       } catch (err) {
-        throw new Error(`error: ${err}`);
+        throw new Error(`error: ${err}`)
       }
-    };
+    }
 
-    getData();
-  }, []);
+    getData()
+  }, [])
 
   if (!clothesItemData) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   const { name, images_url, price, rating, description, sizes, comments } =
-    clothesItemData;
+    clothesItemData
 
   return (
     <div className={cn(className, '')}>
@@ -56,11 +57,11 @@ export const ClothesPage: React.FC<Props> = ({ className }) => {
           rating={rating}
           description={description}
           sizes={sizes}
-          className='mt-6 mb-20'
+          className='mb-20 mt-6'
         />
 
         <CommentsItem className='mb-16' comments={comments} />
       </Container>
     </div>
-  );
-};
+  )
+}

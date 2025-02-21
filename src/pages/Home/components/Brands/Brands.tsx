@@ -1,20 +1,21 @@
-import { Container, Icon } from '@/components/ui';
-import React from 'react';
+import React from 'react'
+
+import { Container, Icon } from '@/components/ui'
 
 interface Props {
-  className?: string;
+  className?: string
 }
 
 export const Brands: React.FC<Props> = () => {
   return (
     <div className='bg-black'>
       <Container className='flex flex-wrap items-center justify-between gap-x-3 gap-y-3 py-11 max-md:py-5'>
-        <Icon className='w-[167px] h-[34px]' name='versache' />
-        <Icon className='w-[91px] h-[38px]' name='zara' />
-        <Icon className='w-[156px] h-[36px]' name='gucci' />
-        <Icon className='w-[194px] h-[32px]' name='prada' />
-        <Icon className='w-[207px] h-[34px]' name='calvin' />
+        <Icon className='h-[34px] w-[167px]' name='versache' />
+        <Icon className='h-[38px] w-[91px]' name='zara' />
+        <Icon className='h-[36px] w-[156px]' name='gucci' />
+        <Icon className='h-[32px] w-[194px]' name='prada' />
+        <Icon className='h-[34px] w-[207px]' name='calvin' />
       </Container>
     </div>
-  );
-};
+  )
+}
