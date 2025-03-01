@@ -9,7 +9,6 @@ interface Props {
 
 export const ShowImages: React.FC<Props> = ({ images, className }) => {
   const [activeIndex, setActiveIndex] = React.useState<number>(0)
-  console.log('activeIndex:', activeIndex)
 
   return (
     <div

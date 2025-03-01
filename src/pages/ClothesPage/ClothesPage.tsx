@@ -51,6 +51,7 @@ export const ClothesPage: React.FC<Props> = ({ className }) => {
         <Breadcrumb />
 
         <ClothesItem
+          id={id}
           name={name}
           images_url={images_url}
           price={price}

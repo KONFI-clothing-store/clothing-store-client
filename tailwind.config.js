@@ -12,7 +12,8 @@ export default {
         '3xs': '380px',
         '2xs': '445px',
         xs: '480px',
-        sm: '640px', // (вже є в Tailwind за замовчуванням)
+        customSm: '540px',
+        sm: '640px',
         md: '768px',
         'x-md': '860px',
         lg: '1024px',

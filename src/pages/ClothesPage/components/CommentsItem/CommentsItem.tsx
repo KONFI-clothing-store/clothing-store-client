@@ -15,7 +15,7 @@ export const CommentsItem: React.FC<Props> = ({ comments, className }) => {
 
       <div className='grid grid-cols-2 gap-5 max-md:grid-cols-1'>
         {comments.map((el: CommentType) => (
-          <Comment commentData={el} />
+          <Comment key={el.id} commentData={el} />
         ))}
       </div>
     </section>

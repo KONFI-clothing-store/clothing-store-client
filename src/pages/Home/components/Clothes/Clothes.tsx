@@ -7,7 +7,7 @@ export type ClothesCardType = {
   id: number
   name: string
   images_url: string[]
-  price: string
+  price: number
   type: string
   rating: string
   sizes: string[]
@@ -27,26 +27,12 @@ export const Clothes: React.FC<Props> = ({
   typeOfClothes,
   className,
 }) => {
-  const { data: clothes, getData } = useGetClothes()
-  const [offsetState, setOffsetState] = React.useState<number>(0)
-
-  React.useEffect(() => {
-    getData(`${import.meta.env.VITE_API_BASE_URL}/clothes/${typeOfClothes}`, {
-      limit: 4,
-      offset: offsetState * 4,
-    })
-
-    setOffsetState(1)
-  }, [getData, setOffsetState])
-
-  const addNewBatchOfClothes = () => {
-    getData(`${import.meta.env.VITE_API_BASE_URL}/clothes/${typeOfClothes}`, {
-      limit: 4,
-      offset: offsetState * 4,
-    })
-
-    setOffsetState((prevState) => prevState + 1)
-  }
+  const {
+    data: clothes,
+    getData,
+    numberOfElements,
+    addNewBatchOfClothes,
+  } = useGetClothes(typeOfClothes)
 
   return (
     <section className={className}>
@@ -61,12 +47,14 @@ export const Clothes: React.FC<Props> = ({
           ))}
         </div>
 
-        <button
-          onClick={addNewBatchOfClothes}
-          className='mx-auto mt-[36px] block rounded-[62px] border border-gray-200 px-20 py-[13.5px] duration-500 hover:bg-gray-300'
-        >
-          Add more
-        </button>
+        {numberOfElements > clothes.length && (
+          <button
+            onClick={addNewBatchOfClothes}
+            className='mx-auto mt-[36px] block rounded-[62px] border border-gray-200 px-20 py-[13.5px] duration-500 hover:bg-gray-300'
+          >
+            Add more
+          </button>
+        )}
       </Container>
     </section>
   )

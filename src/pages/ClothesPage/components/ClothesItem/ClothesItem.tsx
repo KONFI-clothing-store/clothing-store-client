@@ -10,8 +10,9 @@ import { useCart } from '@/zustand/cart'
 import { ShowImages } from './components'
 
 interface Props {
+  id: string | undefined
   name: string
-  price: string
+  price: number
   images_url: string[]
   sizes: string[]
   rating: string
@@ -28,15 +29,25 @@ export const ClothesItem: React.FC<Props> = (props) => {
   console.log('clothesCards:', clothesCards)
 
   const addCLothesToCart = () => {
-    addItemToCart(props.name, size, props.price, props.images_url[0], count)
+    addItemToCart(
+      props.name,
+      size,
+      props.price,
+      props.images_url[0],
+      count,
+      Number(props.id),
+    )
 
-    toast('Clothes added to cart', {
-      description: <Link to='/cart'>GO TO CART</Link>,
-      action: {
-        label: 'X',
-        onClick: () => console.log('Undo'),
+    toast(
+      `${props.name.toUpperCase()} with size ${size.toUpperCase()} added to cart`,
+      {
+        description: <Link to='/cart'>GO TO CART</Link>,
+        action: {
+          label: 'X',
+          onClick: () => console.log('Undo'),
+        },
       },
-    })
+    )
   }
 
   return (
