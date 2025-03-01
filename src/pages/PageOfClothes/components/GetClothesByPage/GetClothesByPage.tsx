@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 import axios from 'axios'
 import cn from 'classnames'
@@ -22,6 +22,7 @@ export const GetClothesByPage: React.FC<Props> = ({ className }) => {
   )
 
   const { pathname } = useLocation()
+  const { type } = useParams()
 
   const isApplyFilter = useFilter((state) => state.isApplyFilter)
   const setApplyFilter = useFilter((state) => state.setApplyFilter)
@@ -32,13 +33,16 @@ export const GetClothesByPage: React.FC<Props> = ({ className }) => {
       try {
         const res = await axios({
           method: 'get',
-          url: `${import.meta.env.VITE_API_BASE_URL}/clothes/types/${
+          url: `${import.meta.env.VITE_API_BASE_URL}/clothes/${
             LIST_OF_URL[pathname as keyof typeof LIST_OF_URL]
           }`,
+          params: {
+            limit: 9999999,
+          },
         })
 
-        setClothes(res.data)
-        setCopyOfClothes(res.data)
+        setClothes(res.data.data)
+        setCopyOfClothes(res.data.data)
       } catch (error) {
         console.log(error)
       }
@@ -47,7 +51,7 @@ export const GetClothesByPage: React.FC<Props> = ({ className }) => {
     if (!isApplyFilter) {
       getClothes()
     }
-  }, [])
+  }, [type])
 
   React.useEffect(() => {
     if (isApplyFilter) {

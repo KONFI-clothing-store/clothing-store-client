@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import cn from 'classnames'
 
@@ -8,11 +8,16 @@ import { Rating } from '@/components/ui'
 import type { ClothesCardType } from '../../../pages/Home/components/Clothes/Clothes'
 
 interface Props {
+  variant?: 'main' | 'secondary'
   className?: string
   item: ClothesCardType
 }
 
-export const ClothesCard: React.FC<Props> = ({ item, className }) => {
+export const ClothesCard: React.FC<Props> = ({
+  variant = 'main',
+  item,
+  className,
+}) => {
   const { name, price, images_url, rating, id, type } = item
 
   return (
@@ -27,16 +32,24 @@ export const ClothesCard: React.FC<Props> = ({ item, className }) => {
           alt={name}
         />
       </div>
-      <p className='mt-4 text-lg font-bold text-black max-lg:text-base'>
+      <p
+        className={`mt-4 text-lg font-bold ${variant === 'main' ? 'text-black' : 'text-white'} max-lg:text-base`}
+      >
         {name}
       </p>
-      <div className='flex items-center gap-x-1'>
+      <div
+        className={`flex items-center gap-x-1 ${variant === 'main' ? 'text-black' : 'text-white'}`}
+      >
         <Rating rating={rating} />
         <p className='text-sm'>
           {rating}/<span className='opacity-60'>5</span>
         </p>
       </div>
-      <p className='text-xl font-bold max-lg:text-lg'>${price}</p>
+      <p
+        className={`text-xl font-bold ${variant === 'main' ? 'text-black' : 'text-white'} max-lg:text-lg`}
+      >
+        ${price}
+      </p>
     </Link>
   )
 }

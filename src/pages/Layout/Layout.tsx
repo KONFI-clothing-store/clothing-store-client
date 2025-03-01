@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 import { Footer, Header } from '@/components'
 import { Toaster } from '@/components/ui'
@@ -14,7 +14,9 @@ export const Layout: React.FC<Props> = () => {
       <Header />
       <main className='flex-grow'>
         <Outlet />
-        <Toaster className='bg-black' />
+        <Link to='/cart'>
+          <Toaster className='bg-black' />
+        </Link>
       </main>
       <Footer />
     </>

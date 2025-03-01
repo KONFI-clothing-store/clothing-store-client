@@ -21,7 +21,7 @@ export const Shop: React.FC = () => {
             className='group relative block h-[491px] overflow-hidden rounded-[20px] max-md:max-h-[300px]'
           >
             <p
-              className='absolute right-10 top-4 z-50 text-[36px] font-bold max-md:right-5 max-md:top-2 max-md:text-[28px]'
+              className='absolute right-10 top-4 z-10 text-[36px] font-bold max-md:right-5 max-md:top-2 max-md:text-[28px]'
               style={{ textShadow: '0px 0px 7px rgba(255, 255, 255, 1)' }}
             >
               T-shirts
@@ -37,7 +37,7 @@ export const Shop: React.FC = () => {
             className='group relative h-[357px] overflow-hidden rounded-[20px] max-md:max-h-[300px]'
           >
             <p
-              className='absolute right-10 top-4 z-50 text-[36px] font-bold max-md:right-5 max-md:top-2 max-md:text-[28px]'
+              className='absolute right-10 top-4 z-10 text-[36px] font-bold max-md:right-5 max-md:top-2 max-md:text-[28px]'
               style={{ textShadow: '0px 0px 7px rgba(255, 255, 255, 1)' }}
             >
               Shorts
@@ -56,7 +56,7 @@ export const Shop: React.FC = () => {
             className='group relative h-[357px] overflow-hidden rounded-[20px] max-md:max-h-[300px]'
           >
             <p
-              className='absolute left-6 top-4 z-50 text-[36px] font-bold max-md:left-auto max-md:right-5 max-md:top-2 max-md:text-[28px]'
+              className='absolute left-6 top-4 z-10 text-[36px] font-bold max-md:left-auto max-md:right-5 max-md:top-2 max-md:text-[28px]'
               style={{ textShadow: '0px 0px 7px rgba(255, 255, 255, 1)' }}
             >
               Shirts
@@ -72,7 +72,7 @@ export const Shop: React.FC = () => {
             className='group relative h-[491px] overflow-hidden rounded-[20px] max-md:max-h-[300px]'
           >
             <p
-              className='absolute left-6 top-3 z-50 text-[36px] font-bold max-md:left-auto max-md:right-5 max-md:top-2 max-md:text-[28px]'
+              className='absolute left-6 top-3 z-10 text-[36px] font-bold max-md:left-auto max-md:right-5 max-md:top-2 max-md:text-[28px]'
               style={{ textShadow: '0px 0px 7px rgba(255, 255, 255, 1)' }}
             >
               Jeans

@@ -13,7 +13,7 @@ interface Props {
   className?: string
 }
 
-export const TypeOfClothes: React.FC<Props> = ({ className }) => {
+export const PageOfClothes: React.FC<Props> = ({ className }) => {
   const { pathname } = useLocation()
   const splitPath = pathname.split('/')[2]
   const title = splitPath[0].toUpperCase() + splitPath.slice(1)

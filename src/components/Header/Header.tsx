@@ -5,6 +5,7 @@ import cn from 'classnames'
 import { ShoppingCart } from 'lucide-react'
 
 import { Container } from '../ui'
+import { SearchClothesByName } from './components'
 import { NAVIGATION_LIST } from './navigationList'
 
 interface Props {
@@ -13,11 +14,10 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ className }) => {
   const [isActiveMenu, setIsActiveMenu] = React.useState<boolean>(false)
-  console.log('isActiveMenu: ', isActiveMenu)
 
   return (
     <header className={cn(className, 'py-6 max-sm:py-3')}>
-      <Container className='flex items-center justify-between py-3'>
+      <Container className='flex items-center justify-between gap-[40px] py-3 max-lg:gap-[30px]'>
         <div className='flex items-center gap-x-[18.63px]'>
           <button
             onClick={() => setIsActiveMenu((prevState) => !prevState)}
@@ -69,7 +69,8 @@ export const Header: React.FC<Props> = ({ className }) => {
           </ul>
         </nav>
 
-        <div className='flex items-center gap-x-4'>
+        <div className='flex items-center gap-x-4 md:flex-1'>
+          <SearchClothesByName />
           <Link to='/cart'>
             <ShoppingCart
               size={20}

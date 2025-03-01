@@ -4,8 +4,10 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import cn from 'classnames'
 
+import { AllElements } from '@/components/Header/components/SearchClothesByName/components'
 import { Breadcrumb, Container } from '@/components/ui'
 
+import { Clothes } from '../Home/components'
 import { ClothesItem, CommentsItem } from './components'
 import { ClothesItemType } from './components/ClothesItem/ClothesItem.types'
 
@@ -14,10 +16,11 @@ interface Props {
 }
 
 export const ClothesPage: React.FC<Props> = ({ className }) => {
-  const { id } = useParams()
   const [clothesItemData, setClothesItemData] = React.useState<
     ClothesItemType | undefined
   >(undefined)
+
+  const { type, id } = useParams()
 
   React.useEffect(() => {
     const getData = async () => {
@@ -34,7 +37,7 @@ export const ClothesPage: React.FC<Props> = ({ className }) => {
     }
 
     getData()
-  }, [])
+  }, [type, id])
 
   if (!clothesItemData) {
     return <div>Loading...</div>

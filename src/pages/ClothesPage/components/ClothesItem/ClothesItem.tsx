@@ -41,7 +41,11 @@ export const ClothesItem: React.FC<Props> = (props) => {
     toast(
       `${props.name.toUpperCase()} with size ${size.toUpperCase()} added to cart`,
       {
-        description: <Link to='/cart'>GO TO CART</Link>,
+        description: (
+          <p>
+            Price: {props.price}, Size: {size} <br />
+          </p>
+        ),
         action: {
           label: 'X',
           onClick: () => console.log('Undo'),

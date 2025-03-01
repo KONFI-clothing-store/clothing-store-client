@@ -5,8 +5,8 @@ import {
   ClothesPage,
   Home,
   Layout,
+  PageOfClothes,
   Shop,
-  TypeOfClothes,
 } from '@/pages'
 
 export const router = createBrowserRouter([
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/shop/:type',
-        element: <TypeOfClothes />,
+        element: <PageOfClothes />,
       },
       {
         path: '/shop/:type/:id',

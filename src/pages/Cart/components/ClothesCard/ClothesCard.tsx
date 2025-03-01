@@ -14,14 +14,9 @@ interface Props {
 
 export const ClothesCard: React.FC<Props> = ({ card, className }) => {
   const [count, setCount] = React.useState<number>(card.quantity)
-  // const [widthOfWindow, setWidthOfWindow] = React.useState<number>(0)
 
   const updateItemInCart = useCart((state) => state.updateItemInCart)
   const deleteItemFromCart = useCart((state) => state.deleteItemFromCart)
-
-  // React.useEffect(() => {
-  //   window.innerWidth
-  // }, [])
 
   const handleAddingCountInCart = (count: number) => {
     setCount(count)
@@ -50,6 +45,7 @@ export const ClothesCard: React.FC<Props> = ({ card, className }) => {
           <p className='text-xl font-bold'>${card.price}</p>
         </div>
       </div>
+
       <div className='flex flex-col items-end justify-between max-customSm:mt-6 max-customSm:flex-row max-customSm:items-center'>
         <button className='bg-transparent max-customSm:order-2'>
           <Trash2

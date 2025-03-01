@@ -1,8 +1,8 @@
 export type NAVIGATION_LIST_TYPE = {
-  id: number;
-  name: string;
-  path: string;
-};
+  id: number
+  name: string
+  path: string
+}
 
 export const NAVIGATION_LIST: Array<NAVIGATION_LIST_TYPE> = [
   {
@@ -12,12 +12,12 @@ export const NAVIGATION_LIST: Array<NAVIGATION_LIST_TYPE> = [
   },
   {
     id: 2,
-    name: 'Brands',
-    path: '/brands',
+    name: 'By rating',
+    path: '/shop/rating',
   },
   {
     id: 3,
     name: 'New Arrivals',
-    path: '/new-arrivals',
+    path: '/shop/new-arrivals',
   },
-];
+]

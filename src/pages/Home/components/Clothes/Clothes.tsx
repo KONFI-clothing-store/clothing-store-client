@@ -29,7 +29,6 @@ export const Clothes: React.FC<Props> = ({
 }) => {
   const {
     data: clothes,
-    getData,
     numberOfElements,
     addNewBatchOfClothes,
   } = useGetClothes(typeOfClothes)
