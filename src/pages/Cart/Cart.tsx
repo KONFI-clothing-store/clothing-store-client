@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import CheckoutButton from '@/components/CheckoutButton/CheckoutButton'
 import { Breadcrumb, Button, Container } from '@/components/ui'
 import { useCart } from '@/zustand/cart'
 
@@ -71,6 +72,8 @@ export const CartPage: React.FC<Props> = () => {
           </>
         )}
       </div>
+
+      <CheckoutButton />
     </Container>
   )
 }
