@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import CheckoutButton from '@/components/CheckoutButton/CheckoutButton'
-import { Breadcrumb, Button, Container } from '@/components/ui'
+import { Breadcrumb, Container } from '@/components/ui'
 import { useCart } from '@/zustand/cart'
 
-import { ClothesCard } from './components'
+import { CartDialog, ClothesCard } from './components'
 
 interface Props {
   className?: string
@@ -58,22 +57,17 @@ export const CartPage: React.FC<Props> = () => {
                   <p className='opacity-60'>Delivery</p>
                   <p className='font-bold'>${delivery}</p>
                 </div>
-
                 <hr className='my-5' />
-
                 <div className='flex items-center justify-between'>
                   <p>Total</p>
                   <p className='text-xl font-bold'>${totalSum + delivery}</p>
                 </div>
-
-                <Button className='py-[19px] text-base'>Go to Checkout</Button>
+                <CartDialog />
               </div>
             </div>
           </>
         )}
       </div>
-
-      <CheckoutButton />
     </Container>
   )
 }
