@@ -5,7 +5,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
@@ -16,8 +15,6 @@ interface Props {
 }
 
 export const CartSelect: React.FC<Props> = ({ variant, items }) => {
-  const [activeItem, setActiveItem] = React.useState<string>(items[0])
-
   return (
     <span className='grid'>
       <h6>{variant === 'month' ? 'Expires' : 'Year'}</h6>

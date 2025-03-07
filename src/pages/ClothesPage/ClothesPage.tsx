@@ -4,10 +4,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import cn from 'classnames'
 
-import { AllElements } from '@/components/Header/components/SearchClothesByName/components'
 import { Breadcrumb, Container } from '@/components/ui'
 
-import { Clothes } from '../Home/components'
 import { ClothesItem, CommentsItem } from './components'
 import { ClothesItemType } from './components/ClothesItem/ClothesItem.types'
 

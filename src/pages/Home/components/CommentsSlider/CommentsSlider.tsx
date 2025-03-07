@@ -1,7 +1,6 @@
 import React from 'react'
 
 import axios from 'axios'
-import 'swiper/css'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 

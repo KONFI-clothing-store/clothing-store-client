@@ -1,7 +1,5 @@
 import React from 'react'
 
-import cn from 'classnames'
-
 import { ClothesCard, Container } from '@/components/ui'
 import { ClothesCardType } from '@/pages/Home/components'
 
@@ -12,7 +10,7 @@ interface Props {
   className?: string
 }
 
-export const AllElements: React.FC<Props> = ({ prompt, className }) => {
+export const AllElements: React.FC<Props> = ({ prompt }) => {
   const { clothes, getAllClothes } = useGetAllClothes()
 
   React.useEffect(() => {

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import cn from 'classnames'
-
 import { Button } from '@/components/ui'
 import {
   Dialog,
@@ -21,7 +19,7 @@ interface Props {
   className?: string
 }
 
-export const CartDialog: React.FC<Props> = ({ className }) => {
+export const CartDialog: React.FC<Props> = ({}) => {
   return (
     <>
       <Dialog>

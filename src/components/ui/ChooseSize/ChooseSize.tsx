@@ -2,8 +2,6 @@ import React from 'react'
 
 import cn from 'classnames'
 
-import { useFilter } from '@/zustand/filter'
-
 interface Props {
   sizes: string[]
   handleChangeSize: (size: string) => void
