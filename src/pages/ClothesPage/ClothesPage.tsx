@@ -5,6 +5,7 @@ import axios from 'axios'
 import cn from 'classnames'
 
 import { Breadcrumb, Container } from '@/components/ui'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
 
 import { ClothesItem, CommentsItem } from './components'
 import { ClothesItemType } from './components/ClothesItem/ClothesItem.types'
@@ -19,6 +20,8 @@ export const ClothesPage: React.FC<Props> = ({ className }) => {
   >(undefined)
 
   const { type, id } = useParams()
+
+  useScrollToTop()
 
   React.useEffect(() => {
     const getData = async () => {

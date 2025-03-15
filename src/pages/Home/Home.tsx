@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { ArrowScrollToTop } from '@/components/ui'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
+
 import { Brands, Clothes, CommentsSlider, Intro } from './components'
 
 interface Props {
@@ -7,6 +10,8 @@ interface Props {
 }
 
 export const Home: React.FC<Props> = () => {
+  useScrollToTop()
+
   return (
     <>
       <Intro />

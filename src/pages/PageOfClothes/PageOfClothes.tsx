@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import cn from 'classnames'
 
 import { Breadcrumb, Container } from '@/components/ui'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
 
 import { Filter, FilterBar, GetClothesByPage } from './components'
 
@@ -15,6 +16,8 @@ export const PageOfClothes: React.FC<Props> = ({ className }) => {
   const { pathname } = useLocation()
   const splitPath = pathname.split('/')[2]
   const title = splitPath[0].toUpperCase() + splitPath.slice(1)
+
+  useScrollToTop()
 
   return (
     <section className={cn(className, '')}>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { Breadcrumb, Container } from '@/components/ui'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
 import { useCart } from '@/zustand/cart'
 
 import { CartDialog, ClothesCard } from './components'
@@ -14,6 +15,8 @@ export const CartPage: React.FC<Props> = () => {
   const clothesCards = useCart((state) => state.clothesCards)
   const totalSum = useCart((state) => state.totalSum)
   const delivery = 15
+
+  useScrollToTop()
 
   return (
     <Container className='pb-[80px]'>

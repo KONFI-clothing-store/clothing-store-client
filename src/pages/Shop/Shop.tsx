@@ -6,8 +6,11 @@ import shirtsImage from '@/assets/shirts-model.jpg'
 import shortsImage from '@/assets/shorts-model.jpg'
 import tShirtsImage from '@/assets/t-shirts-model.jpg'
 import { Breadcrumb, Container } from '@/components/ui'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
 
 export const Shop: React.FC = () => {
+  useScrollToTop()
+
   return (
     <Container>
       <hr className='mb-6' />

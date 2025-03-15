@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
 import { Footer, Header } from '@/components'
-import { Toaster } from '@/components/ui'
+import { ArrowScrollToTop, Toaster } from '@/components/ui'
 
 interface Props {
   className?: string
@@ -17,6 +17,8 @@ export const Layout: React.FC<Props> = () => {
         <Link to='/cart'>
           <Toaster className='bg-black' />
         </Link>
+
+        <ArrowScrollToTop />
       </main>
       <Footer />
     </>
