@@ -27,6 +27,7 @@ type Actions = {
   updateItemInCart: (size: string, addQuantity: number, id: number) => void
   deleteItemFromCart: (id: number, size: string) => void
   calculationOfTotalSum: () => void
+  clearAllCart: () => void
 }
 
 export const useCart = create<State & Actions>((set) => ({
@@ -137,5 +138,10 @@ export const useCart = create<State & Actions>((set) => ({
       return {
         totalSum,
       }
+    }),
+  clearAllCart: () =>
+    set({
+      clothesCards: [],
+      totalSum: 0,
     }),
 }))

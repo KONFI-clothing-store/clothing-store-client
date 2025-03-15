@@ -18,7 +18,7 @@ export const CartSelect: React.FC<Props> = ({ variant, items }) => {
   return (
     <span className='grid'>
       <h6>{variant === 'month' ? 'Expires' : 'Year'}</h6>
-      <Select name={variant}>
+      <Select name={variant} defaultValue={items[0]}>
         <SelectTrigger>
           <SelectValue placeholder={`Select a ${variant}`} />
         </SelectTrigger>

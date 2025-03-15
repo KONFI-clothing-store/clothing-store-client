@@ -1,6 +1,7 @@
 import React from 'react'
 
 import axios from 'axios'
+import 'swiper/css'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -15,15 +16,7 @@ interface Props {
 
 export const CommentsSlider: React.FC<Props> = () => {
   const [commentsData, setCommentsData] = React.useState<CommentType[] | []>([])
-  const [width, setWidth] = React.useState(0)
-
-  const updateWidth = () => {
-    const fullDocumentWidth = Math.max(
-      document.documentElement.scrollWidth,
-      document.body.scrollWidth,
-    )
-    setWidth(fullDocumentWidth)
-  }
+  const [width, setWidth] = React.useState(window.innerWidth)
 
   React.useEffect(() => {
     const getComments = async () => {
@@ -40,7 +33,18 @@ export const CommentsSlider: React.FC<Props> = () => {
     }
 
     getComments()
-    updateWidth()
+  }, [])
+
+  React.useEffect(() => {
+    const updateWidth = () => {
+      setWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', updateWidth)
+
+    return () => {
+      window.removeEventListener('resize', updateWidth)
+    }
   }, [])
 
   if (!commentsData) {
@@ -51,7 +55,7 @@ export const CommentsSlider: React.FC<Props> = () => {
     <Container>
       <Swiper
         loop={true}
-        slidesPerView={width <= 767.98 ? 1 : 2}
+        slidesPerView={width < 768 ? 1 : 2}
         spaceBetween={30}
         autoplay={{
           delay: 5000,

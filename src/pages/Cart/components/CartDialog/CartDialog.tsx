@@ -1,4 +1,7 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui'
 import {
@@ -11,6 +14,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
+import { useCart } from '@/zustand/cart'
 
 import { CartSelect } from '../CartSelect/CartSelect'
 import { submitForm } from './utils/submitForm'
@@ -20,6 +24,21 @@ interface Props {
 }
 
 export const CartDialog: React.FC<Props> = ({}) => {
+  const navigate = useNavigate()
+  const clearAllCart = useCart((state) => state.clearAllCart)
+
+  const handlePayment = () => {
+    toast('SUCCESSFULLY', {
+      description: <p>The order has been successfully paid</p>,
+      action: {
+        label: 'X',
+        onClick: () => {},
+      },
+    })
+    clearAllCart()
+    navigate('/')
+  }
+
   return (
     <>
       <Dialog>
@@ -45,6 +64,7 @@ export const CartDialog: React.FC<Props> = ({}) => {
                   className='mt-1'
                   inputMode='text'
                   name='name'
+                  value='Jhon Doe'
                 />
               </label>
               <label>
@@ -56,6 +76,7 @@ export const CartDialog: React.FC<Props> = ({}) => {
                   className='mt-1'
                   inputMode='numeric'
                   name='phone'
+                  value={'+380 12 345 6789'}
                 />
               </label>
               <label>
@@ -67,6 +88,7 @@ export const CartDialog: React.FC<Props> = ({}) => {
                   className='mt-1'
                   inputMode='email'
                   name='email'
+                  value='example@gmail.com'
                 />
               </label>
               <label>
@@ -74,6 +96,7 @@ export const CartDialog: React.FC<Props> = ({}) => {
                 <Input
                   type='string'
                   placeholder='4242 4242 4242 4242'
+                  value='4242 4242 4242 4242'
                   required
                   className='mt-1'
                   inputMode='numeric'
@@ -122,6 +145,7 @@ export const CartDialog: React.FC<Props> = ({}) => {
                   <Input
                     type='cvc'
                     placeholder='CVC'
+                    value={123}
                     required
                     className='mt-1'
                     inputMode='numeric'
@@ -135,7 +159,12 @@ export const CartDialog: React.FC<Props> = ({}) => {
             </div>
 
             <DialogFooter>
-              <Button className='mt-4 px-[80px] py-3'>Pay</Button>
+              <Button
+                className='mt-4 px-[80px] py-3'
+                onClick={() => handlePayment()}
+              >
+                Pay
+              </Button>
             </DialogFooter>
           </form>
         </DialogContent>
