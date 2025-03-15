@@ -80,6 +80,7 @@ button:focus-visible {
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --green-bg: green;
     --foreground: 240 10% 3.9%;
     --hero-background: 330, 7%, 95%;
     --card-foreground: 240 10% 3.9%;
@@ -108,6 +109,7 @@ button:focus-visible {
   }
   .dark {
     --background: 240 10% 3.9%;
+    --green-bg: green;
     --foreground: 0 0% 98%;
     --hero-background: 330, 7%, 95%;
     --card-foreground: 0 0% 98%;

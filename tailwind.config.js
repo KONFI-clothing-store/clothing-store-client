@@ -27,6 +27,7 @@ export default {
       },
       colors: {
         background: 'hsl(var(--background))',
+        'gren-bg': 'green',
         foreground: 'hsl(var(--foreground))',
         'hero-bg': 'hsl(var(--hero-background))',
         card: {

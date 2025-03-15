@@ -52,7 +52,7 @@ export const CommentsSlider: React.FC<Props> = () => {
   }
 
   return (
-    <Container>
+    <Container className='mb-8'>
       <Swiper
         loop={true}
         slidesPerView={width < 768 ? 1 : 2}
