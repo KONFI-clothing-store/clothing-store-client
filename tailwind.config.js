@@ -81,5 +81,10 @@ export default {
       '5xl': ['64px', '64px'],
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    function ({ addVariant }) {
+      addVariant('supports-hover', '@media (hover: hover) { & }')
+    },
+  ],
 }
