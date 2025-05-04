@@ -1,13 +1,8 @@
 @font-face {
   font-family: 'Integral CF';
-  src: url('IntegralCF-Bold.eot');
   src:
-    local('Integral CF Bold'),
-    local('IntegralCF-Bold'),
-    url('IntegralCF-Bold.eot?#iefix') format('embedded-opentype'),
-    url('IntegralCF-Bold.woff2') format('woff2'),
-    url('IntegralCF-Bold.woff') format('woff'),
-    url('IntegralCF-Bold.ttf') format('truetype');
+    url('src/fonts/IntegralCF/IntegralCF-Bold.woff2') format(woff2),
+    url('src/fonts/IntegralCF/IntegralCF-Bold.woff') format(woff);
   font-weight: bold;
   font-style: normal;
 }
