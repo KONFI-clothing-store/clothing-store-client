@@ -1,9 +1,9 @@
+@import 'src/styles/integral_cf-font.css';
+@import 'src/styles/satoshi-font.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import 'src/styles/integral_cf-font.css';
-@import 'src/styles/satoshi-font.css';
 
 body {
   @apply font-satoshi;
