@@ -1,23 +1,25 @@
-import React from 'react'
+import React from 'react';
 
-import cn from 'classnames'
+import cn from 'classnames';
 
-import { Button, ChooseSize } from '@/components/ui'
-import { useFilter } from '@/zustand/filter'
+import { Button } from '@/components/ui/Button/Button';
+import { ChooseSize } from '@/components/ui/ChooseSize/ChooseSize';
 
-import { ChoosePrice } from './components'
+import { useFilter } from '@/zustand/filter';
+
+import { ChoosePrice } from './components';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const FilterBar: React.FC<Props> = ({ className }) => {
-  const setApplyFilter = useFilter((state) => state.setApplyFilter)
-  const addSizeToFilter = useFilter((state) => state.addSizeToFilter)
+  const setApplyFilter = useFilter((state) => state.setApplyFilter);
+  const addSizeToFilter = useFilter((state) => state.addSizeToFilter);
 
   const handleAddingSizeToFilter = (size: string) => {
-    addSizeToFilter(size)
-  }
+    addSizeToFilter(size);
+  };
 
   return (
     <aside
@@ -59,5 +61,5 @@ export const FilterBar: React.FC<Props> = ({ className }) => {
         Apply Filter
       </Button>
     </aside>
-  )
-}
+  );
+};

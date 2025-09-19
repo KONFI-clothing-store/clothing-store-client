@@ -1,33 +1,35 @@
-import React from 'react'
+import React from 'react';
 
-import { useScrollToTop } from '@/hooks/useScrollToTop'
+import { ProductSection } from '@/features/products/components/ProuctSection/ProductSection';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
-import { Brands, Clothes, CommentsSlider, Intro } from './components'
+import { Brands, CommentsSlider, Intro } from './components';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const Home: React.FC<Props> = () => {
-  useScrollToTop()
+  useScrollToTop();
 
   return (
     <>
       <Intro />
       <Brands />
 
-      <Clothes
+      <ProductSection
         title='New Arrivals'
-        typeOfClothes='latest'
+        filterType='latest'
         className='mb-16 mt-[70px] max-md:mt-5'
       />
-      <Clothes
+
+      <ProductSection
         title='Top Rating'
-        typeOfClothes='rating'
+        filterType='rating'
         className='mb-16 mt-[70px] max-md:mt-5'
       />
 
       <CommentsSlider />
     </>
-  )
-}
+  );
+};

@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import { Container, Icon } from '@/components/ui'
+import { Container } from '@/components/ui/Container/Container';
+import { Icon } from '@/components/ui/Icon/Icon';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const Brands: React.FC<Props> = () => {
@@ -17,5 +18,5 @@ export const Brands: React.FC<Props> = () => {
         <Icon className='h-[34px] w-[207px]' name='calvin' />
       </Container>
     </div>
-  )
-}
+  );
+};

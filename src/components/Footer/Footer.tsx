@@ -1,15 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import cn from 'classnames'
-import { Facebook, Instagram, Twitter } from 'lucide-react'
+import cn from 'classnames';
+import { Facebook, Instagram, Twitter } from 'lucide-react';
 
-import { Container, Icon } from '../ui'
-import { Form } from './components'
-import { PAYMENT_ITEMS } from './iconItems'
+import { Container } from '../ui/Container/Container';
+import { Icon } from '../ui/Icon/Icon';
+import { Form } from './components';
+import { PAYMENT_ITEMS } from './iconItems';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const Footer: React.FC<Props> = ({ className }) => {
@@ -59,7 +60,6 @@ export const Footer: React.FC<Props> = ({ className }) => {
             <Form />
           </div>
         </div>
-
         <div className='mb-[25px] mt-[50px] h-[1px] w-full bg-gray-200 max-sm:mb-[15px] max-sm:mt-[30px]' />
 
         <div className='flex items-center justify-between max-sm:flex-col max-sm:gap-y-3'>
@@ -80,5 +80,5 @@ export const Footer: React.FC<Props> = ({ className }) => {
         </div>
       </Container>
     </footer>
-  )
-}
+  );
+};

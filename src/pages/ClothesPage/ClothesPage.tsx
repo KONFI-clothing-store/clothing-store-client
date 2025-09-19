@@ -1,51 +1,52 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import axios from 'axios'
-import cn from 'classnames'
+import { Breadcrumb } from '@/components/ui/Breadcrumb/Breadcrumb';
+import { Container } from '@/components/ui/Container/Container';
 
-import { Breadcrumb, Container } from '@/components/ui'
-import { useScrollToTop } from '@/hooks/useScrollToTop'
+import { apiClient } from '@/api/apiClient';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { cn } from '@/utils/utils';
 
-import { ClothesItem, CommentsItem } from './components'
-import { ClothesItemType } from './components/ClothesItem/ClothesItem.types'
+import { ClothesItem, CommentsItem } from './components';
+import { ClothesItemType } from './components/ClothesItem/ClothesItem.types';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
-export const ClothesPage: React.FC<Props> = ({ className }) => {
-  const [clothesItemData, setClothesItemData] = React.useState<
+export const ClothesPage = ({ className }: Props) => {
+  const [clothesItemData, setClothesItemData] = useState<
     ClothesItemType | undefined
-  >(undefined)
+  >(undefined);
 
-  const { type, id } = useParams()
+  const { type, id } = useParams();
 
-  useScrollToTop()
+  useScrollToTop();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios({
+        const response = await apiClient({
           method: 'get',
           url: `${import.meta.env.VITE_API_BASE_URL}/clothes/${id}`,
-        })
+        });
 
-        setClothesItemData(response.data)
+        setClothesItemData(response.data);
       } catch (err) {
-        throw new Error(`error: ${err}`)
+        throw new Error(`error: ${err}`);
       }
-    }
+    };
 
-    getData()
-  }, [type, id])
+    getData();
+  }, [type, id]);
 
   if (!clothesItemData) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   const { name, images_url, price, rating, description, sizes, comments } =
-    clothesItemData
+    clothesItemData;
 
   return (
     <div className={cn(className, '')}>
@@ -68,5 +69,5 @@ export const ClothesPage: React.FC<Props> = ({ className }) => {
         <CommentsItem className='mb-16' comments={comments} />
       </Container>
     </div>
-  )
-}
+  );
+};

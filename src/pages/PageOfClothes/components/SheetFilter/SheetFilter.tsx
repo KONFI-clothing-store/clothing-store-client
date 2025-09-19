@@ -1,28 +1,28 @@
-import React from 'react'
+import React from 'react';
 
-import cn from 'classnames'
-import { SlidersHorizontal } from 'lucide-react'
+import cn from 'classnames';
+import { SlidersHorizontal } from 'lucide-react';
 
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
-import { FilterBar } from '../FilterBar/FilterBar'
+import { FilterBar } from '../FilterBar/FilterBar';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const Filter: React.FC<Props> = ({ className }) => {
-  const [width, setWidth] = React.useState<number>(window.innerWidth)
+  const [width, setWidth] = React.useState<number>(window.innerWidth);
 
   React.useEffect(() => {
     const updateWidth = () => {
-      setWidth(window.innerWidth)
-    }
+      setWidth(window.innerWidth);
+    };
 
-    window.addEventListener('resize', updateWidth)
+    window.addEventListener('resize', updateWidth);
 
-    return () => window.removeEventListener('resize', updateWidth)
-  }, [])
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
 
   return (
     <div className={cn(className, '')}>
@@ -39,5 +39,5 @@ export const Filter: React.FC<Props> = ({ className }) => {
         </Sheet>
       )}
     </div>
-  )
-}
+  );
+};

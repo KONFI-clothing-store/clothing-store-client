@@ -1,24 +1,24 @@
-import React from 'react'
+import React from 'react';
 
-import cn from 'classnames'
+import cn from 'classnames';
 
-import { Icon } from '@/components/ui'
+import { Icon } from '@/components/ui/Icon/Icon';
 
 interface Props {
-  number: number
-  setNumber: (count: number) => void
-  className?: string
+  number: number;
+  setNumber: (count: number) => void;
+  className?: string;
 }
 
 export const Counter: React.FC<Props> = ({ number, setNumber, className }) => {
   const handleClick = (str: string) => {
     if (str === '-') {
-      if (number === 1) return
-      setNumber(number - 1)
+      if (number === 1) return;
+      setNumber(number - 1);
     } else {
-      setNumber(number + 1)
+      setNumber(number + 1);
     }
-  }
+  };
 
   return (
     <div
@@ -35,5 +35,5 @@ export const Counter: React.FC<Props> = ({ number, setNumber, className }) => {
         <Icon name='plus' className='h-[19px] w-[19px]' />
       </button>
     </div>
-  )
-}
+  );
+};

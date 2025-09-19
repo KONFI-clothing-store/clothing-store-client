@@ -1,12 +1,19 @@
 {
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "semi": false,
   "plugins": [
     "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss"
   ],
-  "importOrder": ["^react(.*)$", "<THIRD_PARTY_MODULES>", "^@(.*)", "^[./]"],
+  "importOrder": [
+    "^react(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/featured/(.*)",
+    "^@/components/(.*)",
+    "^@/types/(.*)",
+    "^@(.*)",
+    "^[./]"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }

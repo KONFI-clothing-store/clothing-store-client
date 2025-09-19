@@ -1,15 +1,15 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-import { Icon } from '..'
-import { BREADCRUMB_DATA } from './BREADCRUMB_DATA'
+import { Icon } from '../Icon/Icon';
+import { BREADCRUMB_DATA } from './BREADCRUMB_DATA';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const Breadcrumb: React.FC<Props> = ({ className }) => {
-  const location = useLocation()
+  const location = useLocation();
   return (
     <div className={className}>
       <ul className='flex gap-x-4'>
@@ -33,5 +33,5 @@ export const Breadcrumb: React.FC<Props> = ({ className }) => {
         )}
       </ul>
     </div>
-  )
-}
+  );
+};

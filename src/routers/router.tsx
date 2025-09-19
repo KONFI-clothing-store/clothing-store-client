@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom';
 
 import {
   CartPage,
@@ -7,7 +7,7 @@ import {
   Layout,
   PageOfClothes,
   Shop,
-} from '@/pages'
+} from '@/pages';
 
 export const router = createBrowserRouter([
   {
@@ -36,4 +36,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-])
+]);

@@ -1,17 +1,20 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import cn from 'classnames'
+import cn from 'classnames';
 
-import models from '@/../public/images/models.png'
-import { Button, Container, Icon } from '@/components/ui'
+import { Button } from '@/components/ui/Button/Button';
+import { Container } from '@/components/ui/Container/Container';
+import { Icon } from '@/components/ui/Icon/Icon';
+
+import models from '@/../public/images/models.png';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const Intro: React.FC<Props> = ({ className }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <section className={cn(className, 'bg-hero-bg pt-[43px]')}>
@@ -46,5 +49,5 @@ export const Intro: React.FC<Props> = ({ className }) => {
         </div>
       </Container>
     </section>
-  )
-}
+  );
+};

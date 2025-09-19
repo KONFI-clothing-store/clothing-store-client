@@ -1,37 +1,37 @@
-import React from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 
-import axios from 'axios'
-import cn from 'classnames'
+import cn from 'classnames';
 
-import { ClothesCard } from '@/components/ui'
-import { ClothesCardType } from '@/pages/Home/components'
-import { useFilter } from '@/zustand/filter'
+import { apiClient } from '@/api/apiClient';
+import { ProductCard } from '@/features/products/components/ui/ProductCard/ProductCard';
+import { ProductCardType } from '@/features/products/types/product.types';
+import { useFilter } from '@/zustand/filter';
 
-import { LIST_OF_URL } from './constants/listOfUrl'
-import { useClothesFilter } from './hooks/useClothesFilter'
+import { LIST_OF_URL } from './constants/listOfUrl';
+import { useClothesFilter } from './hooks/useClothesFilter';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const GetClothesByPage: React.FC<Props> = ({ className }) => {
-  const [clothes, setClothes] = React.useState<ClothesCardType[]>([])
-  const [copyOfClothes, setCopyOfClothes] = React.useState<ClothesCardType[]>(
+  const [clothes, setClothes] = React.useState<ProductCardType[]>([]);
+  const [copyOfClothes, setCopyOfClothes] = React.useState<ProductCardType[]>(
     [],
-  )
+  );
 
-  const { pathname } = useLocation()
-  const { type } = useParams()
+  const { pathname } = useLocation();
+  const { type } = useParams();
 
-  const isApplyFilter = useFilter((state) => state.isApplyFilter)
-  const setApplyFilter = useFilter((state) => state.setApplyFilter)
-  const { filter } = useClothesFilter()
+  const isApplyFilter = useFilter((state) => state.isApplyFilter);
+  const setApplyFilter = useFilter((state) => state.setApplyFilter);
+  const { filter } = useClothesFilter();
 
   React.useEffect(() => {
     const getClothes = async () => {
       try {
-        const res = await axios({
+        const res = await apiClient({
           method: 'get',
           url: `${import.meta.env.VITE_API_BASE_URL}/clothes/${
             LIST_OF_URL[pathname as keyof typeof LIST_OF_URL]
@@ -39,26 +39,26 @@ export const GetClothesByPage: React.FC<Props> = ({ className }) => {
           params: {
             limit: 9999999,
           },
-        })
+        });
 
-        setClothes(res.data.data)
-        setCopyOfClothes(res.data.data)
+        setClothes(res.data.data);
+        setCopyOfClothes(res.data.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
 
     if (!isApplyFilter) {
-      getClothes()
+      getClothes();
     }
-  }, [type])
+  }, [type]);
 
   React.useEffect(() => {
     if (isApplyFilter) {
-      setClothes(() => filter(copyOfClothes))
-      setApplyFilter(false)
+      setClothes(() => filter(copyOfClothes));
+      setApplyFilter(false);
     }
-  }, [isApplyFilter, filter, setApplyFilter])
+  }, [isApplyFilter, filter, setApplyFilter]);
 
   return (
     <div
@@ -70,8 +70,8 @@ export const GetClothesByPage: React.FC<Props> = ({ className }) => {
       {clothes.length === 0 ? (
         <p>Noting</p>
       ) : (
-        clothes.map((item) => <ClothesCard item={item} key={item.id} />)
+        clothes.map((item) => <ProductCard item={item} key={item.id} />)
       )}
     </div>
-  )
-}
+  );
+};

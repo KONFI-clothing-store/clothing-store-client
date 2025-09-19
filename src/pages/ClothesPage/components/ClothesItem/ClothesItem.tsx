@@ -1,31 +1,33 @@
-import React from 'react'
+import React from 'react';
 
-import cn from 'classnames'
-import { toast } from 'sonner'
+import cn from 'classnames';
+import { toast } from 'sonner';
 
-import { ActionsForAddCart, Button, ChooseSize, Rating } from '@/components/ui'
-import { useCart } from '@/zustand/cart'
+import { ActionsForAddCart } from '@/components/ui/ActionsForAddCart/ActionsForAddCart';
+import { Button } from '@/components/ui/Button/Button';
+import { ChooseSize } from '@/components/ui/ChooseSize/ChooseSize';
+import { Rating } from '@/components/ui/Rating/Rating';
 
-import { ShowImages } from './components'
+import { useCart } from '@/zustand/cart';
+
+import { ShowImages } from './components';
 
 interface Props {
-  id: string | undefined
-  name: string
-  price: number
-  images_url: string[]
-  sizes: string[]
-  rating: string
-  description: string
-  className?: string
+  id: string | undefined;
+  name: string;
+  price: number;
+  images_url: string[];
+  sizes: string[];
+  rating: string;
+  description: string;
+  className?: string;
 }
 
 export const ClothesItem: React.FC<Props> = (props) => {
-  const [size, setSize] = React.useState<string>('')
-  const [count, setCount] = React.useState<number>(1)
+  const [size, setSize] = React.useState<string>('');
+  const [count, setCount] = React.useState<number>(1);
 
-  const { clothesCards, addItemToCart } = useCart((state) => state)
-
-  console.log('clothesCards:', clothesCards)
+  const { clothesCards, addItemToCart } = useCart((state) => state);
 
   const addCLothesToCart = () => {
     addItemToCart(
@@ -35,7 +37,7 @@ export const ClothesItem: React.FC<Props> = (props) => {
       props.images_url[0],
       count,
       Number(props.id),
-    )
+    );
 
     toast(
       `${props.name.toUpperCase()} with size ${size.toUpperCase()} added to cart`,
@@ -50,8 +52,8 @@ export const ClothesItem: React.FC<Props> = (props) => {
           onClick: () => console.log('Undo'),
         },
       },
-    )
-  }
+    );
+  };
 
   return (
     <section
@@ -67,7 +69,7 @@ export const ClothesItem: React.FC<Props> = (props) => {
           {props.name}
         </h2>
         <div className='mb-3 flex items-center gap-x-1'>
-          <Rating rating={props.rating} />
+          <Rating rating={+props.rating} />
           <p className='text-lg'>
             {props.rating}/<span className='opacity-60'>5</span>
           </p>
@@ -95,5 +97,5 @@ export const ClothesItem: React.FC<Props> = (props) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

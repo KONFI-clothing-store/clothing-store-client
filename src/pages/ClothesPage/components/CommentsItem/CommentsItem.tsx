@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { Comment } from '@/components/ui'
-import type { CommentType } from '@/components/ui/Comment/Comment.types'
+import { Comment } from '@/components/ui/Comment/Comment';
+import type { CommentType } from '@/components/ui/Comment/Comment.types';
 
 interface Props {
-  comments: CommentType[]
-  className?: string
+  comments: CommentType[];
+  className?: string;
 }
 
 export const CommentsItem: React.FC<Props> = ({ comments, className }) => {
@@ -19,5 +19,5 @@ export const CommentsItem: React.FC<Props> = ({ comments, className }) => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};

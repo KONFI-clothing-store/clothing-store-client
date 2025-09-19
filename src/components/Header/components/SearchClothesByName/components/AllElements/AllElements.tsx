@@ -1,39 +1,47 @@
-import React from 'react'
+import { useEffect } from 'react';
 
-import { ClothesCard, Container } from '@/components/ui'
-import { ClothesCardType } from '@/pages/Home/components'
+import { Container } from '@/components/ui/Container/Container';
 
-import { useGetAllClothes } from './hooks/useGetAllClothes'
+import { ProductCard } from '@/features/products/components/ui/ProductCard/ProductCard';
+import { ProductCardType } from '@/features/products/types/product.types';
 
-interface Props {
-  prompt: string
-  className?: string
+import { useGetAllClothes } from './hooks/useGetAllClothes';
+
+interface AllElementsProps {
+  prompt: string;
+  className?: string;
 }
 
-export const AllElements: React.FC<Props> = ({ prompt }) => {
-  const { clothes, getAllClothes } = useGetAllClothes()
+export const AllElements = ({ prompt }: AllElementsProps) => {
+  const { clothes, getAllClothes } = useGetAllClothes();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (prompt.length >= 1) {
-      getAllClothes()
+      getAllClothes();
     }
-  }, [])
+  }, []);
 
-  const newArray = clothes.filter((item) =>
-    item.name.toLowerCase().includes(prompt.toLowerCase()),
-  )
+  // const newArray =
+  //   clothes.length > 0
+  //     ? clothes.filter((item: ProductCardType) =>
+  //         item.name.toLowerCase().includes(prompt.toLowerCase()),
+  //       )
+  //     : [];
+
+  const newArray: ProductCardType[] | null = [];
 
   return (
     <div className='absolute bottom-0 left-0 right-0 top-[120px] z-50 bg-[#000000b4] max-sm:top-[93px]'>
       <div className='h-full w-full overflow-y-scroll backdrop-blur-lg'>
         <Container className='py-5'>
           <div className='grid grid-cols-4 gap-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-2xs:grid-cols-1'>
-            {newArray?.map((item: ClothesCardType) => (
-              <ClothesCard key={item.id} item={item} variant='secondary' />
-            ))}
+            {newArray.length > 0 &&
+              newArray?.map((item: ProductCardType) => (
+                <ProductCard key={item.id} item={item} variant='secondary' />
+              ))}
           </div>
         </Container>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,15 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import jeansImage from '@/assets/jeans-model.jpg'
-import shirtsImage from '@/assets/shirts-model.jpg'
-import shortsImage from '@/assets/shorts-model.jpg'
-import tShirtsImage from '@/assets/t-shirts-model.jpg'
-import { Breadcrumb, Container } from '@/components/ui'
-import { useScrollToTop } from '@/hooks/useScrollToTop'
+import { Breadcrumb } from '@/components/ui/Breadcrumb/Breadcrumb';
+import { Container } from '@/components/ui/Container/Container';
+
+import jeansImage from '@/assets/jeans-model.jpg';
+import shirtsImage from '@/assets/shirts-model.jpg';
+import shortsImage from '@/assets/shorts-model.jpg';
+import tShirtsImage from '@/assets/t-shirts-model.jpg';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 export const Shop: React.FC = () => {
-  useScrollToTop()
+  useScrollToTop();
 
   return (
     <Container>
@@ -89,5 +91,5 @@ export const Shop: React.FC = () => {
         </div>
       </div>
     </Container>
-  )
-}
+  );
+};

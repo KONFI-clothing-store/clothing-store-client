@@ -1,24 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import cn from 'classnames'
+import { Rating } from '@/components/ui/Rating/Rating';
 
-import { Rating } from '@/components/ui'
+import { ProductCardType } from '@/features/products/types/product.types';
+import { cn } from '@/utils/utils';
 
-import type { ClothesCardType } from '../../../pages/Home/components/Clothes/Clothes'
-
-interface Props {
-  variant?: 'main' | 'secondary'
-  className?: string
-  item: ClothesCardType
+interface ProductCardProps {
+  variant?: 'main' | 'secondary';
+  className?: string;
+  item: ProductCardType;
 }
 
-export const ClothesCard: React.FC<Props> = ({
+export const ProductCard = ({
   variant = 'main',
   item,
   className,
-}) => {
-  const { name, price, images_url, rating, id, type } = item
+}: ProductCardProps) => {
+  const { name, price, images_url, rating, id, type } = item;
 
   return (
     <Link
@@ -26,11 +24,7 @@ export const ClothesCard: React.FC<Props> = ({
       className={cn(className, 'max-w-[298px] max-2xs:max-w-full')}
     >
       <div className='grid w-full place-items-center overflow-hidden rounded-[20px] bg-card'>
-        <img
-          src={`${import.meta.env.VITE_API_BASE_URL}/files/${images_url[0]}`}
-          className=''
-          alt={name}
-        />
+        <img src={images_url} className='' alt={name} />
       </div>
       <p
         className={`mt-4 text-lg font-bold ${variant === 'main' ? 'text-black' : 'text-white'} max-lg:text-base`}
@@ -51,5 +45,5 @@ export const ClothesCard: React.FC<Props> = ({
         ${price}
       </p>
     </Link>
-  )
-}
+  );
+};

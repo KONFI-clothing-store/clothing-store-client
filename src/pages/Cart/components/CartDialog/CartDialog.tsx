@@ -1,9 +1,9 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { toast } from 'sonner'
+import { toast } from 'sonner';
 
-import { Button } from '@/components/ui'
+import { Button } from '@/components/ui/Button/Button';
 import {
   Dialog,
   DialogContent,
@@ -12,20 +12,21 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { useCart } from '@/zustand/cart'
+} from '@/components/ui/Dialog/dialog';
+import { Input } from '@/components/ui/input';
 
-import { CartSelect } from '../CartSelect/CartSelect'
-import { submitForm } from './utils/submitForm'
+import { useCart } from '@/zustand/cart';
+
+import { CartSelect } from '../CartSelect/CartSelect';
+import { submitForm } from './utils/submitForm';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const CartDialog: React.FC<Props> = ({}) => {
-  const navigate = useNavigate()
-  const clearAllCart = useCart((state) => state.clearAllCart)
+  const navigate = useNavigate();
+  const clearAllCart = useCart((state) => state.clearAllCart);
 
   const handlePayment = () => {
     toast('SUCCESSFULLY', {
@@ -34,10 +35,10 @@ export const CartDialog: React.FC<Props> = ({}) => {
         label: 'X',
         onClick: () => {},
       },
-    })
-    clearAllCart()
-    navigate('/')
-  }
+    });
+    clearAllCart();
+    navigate('/');
+  };
 
   return (
     <>
@@ -170,5 +171,5 @@ export const CartDialog: React.FC<Props> = ({}) => {
         </DialogContent>
       </Dialog>
     </>
-  )
-}
+  );
+};

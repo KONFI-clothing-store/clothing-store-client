@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-import cn from 'classnames'
+import { cn } from '@/utils/utils';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  color?: 'black' | 'white'
-  children: React.ReactNode
-  className?: string
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  color?: 'black' | 'white';
+  children: React.ReactNode;
+  className?: string;
 }
 
-export const Button: React.FC<Props> = ({
+export const Button = ({
   color = 'black',
   children,
   className,
   ...props
-}) => {
+}: ButtonProps) => {
   return (
     <button
       {...props}
@@ -24,5 +24,5 @@ export const Button: React.FC<Props> = ({
     >
       {children}
     </button>
-  )
-}
+  );
+};

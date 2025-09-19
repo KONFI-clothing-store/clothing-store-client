@@ -1,23 +1,25 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-import cn from 'classnames'
+import cn from 'classnames';
 
-import { Breadcrumb, Container } from '@/components/ui'
-import { useScrollToTop } from '@/hooks/useScrollToTop'
+import { Breadcrumb } from '@/components/ui/Breadcrumb/Breadcrumb';
+import { Container } from '@/components/ui/Container/Container';
 
-import { Filter, FilterBar, GetClothesByPage } from './components'
+import { useScrollToTop } from '@/hooks/useScrollToTop';
+
+import { Filter, FilterBar, GetClothesByPage } from './components';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const PageOfClothes: React.FC<Props> = ({ className }) => {
-  const { pathname } = useLocation()
-  const splitPath = pathname.split('/')[2]
-  const title = splitPath[0].toUpperCase() + splitPath.slice(1)
+  const { pathname } = useLocation();
+  const splitPath = pathname.split('/')[2];
+  const title = splitPath[0].toUpperCase() + splitPath.slice(1);
 
-  useScrollToTop()
+  useScrollToTop();
 
   return (
     <section className={cn(className, '')}>
@@ -43,5 +45,5 @@ export const PageOfClothes: React.FC<Props> = ({ className }) => {
         </div>
       </Container>
     </section>
-  )
-}
+  );
+};

@@ -1,23 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import cn from 'classnames'
-import { ShoppingCart } from 'lucide-react'
+import cn from 'classnames';
+import { ShoppingCart } from 'lucide-react';
 
-import { Container } from '../ui'
-import { BurgerButton, Navigation, SearchClothesByName } from './components'
-import { useCloseMenuOnRouteChange } from './hooks/useCloseMenuOnRouteChange'
-import { IsActiveMenuType } from './types/activeMenuTypes'
+import { Container } from '../ui/Container/Container';
+import { BurgerButton, Navigation, SearchClothesByName } from './components';
+import { useCloseMenuOnRouteChange } from './hooks/useCloseMenuOnRouteChange';
+import { IsActiveMenuType } from './types/activeMenuTypes';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const Header: React.FC<Props> = ({ className }) => {
   const [isActiveMenu, setIsActiveMenu] =
-    React.useState<IsActiveMenuType>(false)
+    React.useState<IsActiveMenuType>(false);
 
-  useCloseMenuOnRouteChange(setIsActiveMenu)
+  useCloseMenuOnRouteChange(setIsActiveMenu);
 
   return (
     <header className={cn(className, 'py-6 max-sm:py-3')}>
@@ -49,5 +49,5 @@ export const Header: React.FC<Props> = ({ className }) => {
         </div>
       </Container>
     </header>
-  )
-}
+  );
+};

@@ -1,11 +1,13 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
-import { Footer, Header } from '@/components'
-import { ArrowScrollToTop, Toaster } from '@/components/ui'
+import { ArrowScrollToTop } from '@/components/ui/ArrowScrollToTop/ArrowScrollToTop';
+import { Toaster } from '@/components/ui/Sonner/sonner';
+
+import { Footer, Header } from '@/components';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const Layout: React.FC<Props> = () => {
@@ -22,5 +24,5 @@ export const Layout: React.FC<Props> = () => {
       </main>
       <Footer />
     </>
-  )
-}
+  );
+};
