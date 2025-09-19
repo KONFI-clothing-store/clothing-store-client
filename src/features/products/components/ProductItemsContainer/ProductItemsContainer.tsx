@@ -2,7 +2,7 @@ import { EmptyState } from '@/components/ui/EmptyState/EmptyState';
 import { ErrorState } from '@/components/ui/ErrorState/ErrorState';
 
 import { LoadMoreButton } from '@/features/products/components/ui/LoadMoreButton/LoadMoreButton';
-import { useGetClothes } from '@/features/products/hooks/useGetClothes';
+import { useGetProducts } from '@/features/products/hooks/useGetProducts';
 
 import { ProductFilterType } from '../../types/product.types';
 import { ProductGrid } from '../ProductGrid/ProductGrid';
@@ -23,7 +23,7 @@ export function ProductItemsContainer({
     totalCount,
     isLoading,
     loadMoreItems,
-  } = useGetClothes(filterType);
+  } = useGetProducts(filterType);
 
   const hasMoreItems = totalCount ? totalCount > clothesItems.length : false;
   const showLoadMoreButton = !isLoading && hasMoreItems;

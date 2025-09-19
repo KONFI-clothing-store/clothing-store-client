@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { Button } from '@/components/ui/Button/Button';
 import { ChooseSize } from '@/components/ui/ChooseSize/ChooseSize';
 
-import { useFilter } from '@/zustand/filter';
+import { useFilter } from '@/core/zustand/filter';
 
 import { ChoosePrice } from './components';
 

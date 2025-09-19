@@ -6,7 +6,7 @@ import { useProductPagination } from './useProductPagination';
 
 const SIZE_OF_PRODUCTS = 4;
 
-export const useGetClothes = (filterType: 'all' | 'latest' | 'rating') => {
+export const useGetProducts = (filterType: 'all' | 'latest' | 'rating') => {
   const [data, setData] = useState<ProductCardType[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);

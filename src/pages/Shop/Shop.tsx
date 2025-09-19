@@ -8,7 +8,7 @@ import jeansImage from '@/assets/jeans-model.jpg';
 import shirtsImage from '@/assets/shirts-model.jpg';
 import shortsImage from '@/assets/shorts-model.jpg';
 import tShirtsImage from '@/assets/t-shirts-model.jpg';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { useScrollToTop } from '@/shared/hooks/useScrollToTop';
 
 export const Shop: React.FC = () => {
   useScrollToTop();

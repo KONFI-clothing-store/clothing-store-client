@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ProductSection } from '@/features/products/components/ProuctSection/ProductSection';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { useScrollToTop } from '@/shared/hooks/useScrollToTop';
 
 import { Brands, CommentsSlider, Intro } from './components';
 

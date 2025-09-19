@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Rating } from '@/components/ui/Rating/Rating';
 
 import { ProductCardType } from '@/features/products/types/product.types';
-import { cn } from '@/utils/utils';
+import { cn } from '@/shared/utils/utils';
 
 interface ProductCardProps {
   variant?: 'main' | 'secondary';

@@ -1,27 +1,28 @@
-import React from 'react'
+import React from 'react';
 
-import cn from 'classnames'
-import { Trash2 } from 'lucide-react'
+import cn from 'classnames';
+import { Trash2 } from 'lucide-react';
 
-import { Counter } from '@/components/ui/ActionsForAddCart/components'
-import { useCart } from '@/zustand/cart'
-import type { ClothesCardType } from '@/zustand/cart'
+import { Counter } from '@/components/ui/ActionsForAddCart/components';
+
+import { useCart } from '@/core/zustand/cart';
+import type { ClothesCardType } from '@/core/zustand/cart';
 
 interface Props {
-  card: ClothesCardType
-  className?: string
+  card: ClothesCardType;
+  className?: string;
 }
 
 export const ClothesCard: React.FC<Props> = ({ card, className }) => {
-  const [count, setCount] = React.useState<number>(card.quantity)
+  const [count, setCount] = React.useState<number>(card.quantity);
 
-  const updateItemInCart = useCart((state) => state.updateItemInCart)
-  const deleteItemFromCart = useCart((state) => state.deleteItemFromCart)
+  const updateItemInCart = useCart((state) => state.updateItemInCart);
+  const deleteItemFromCart = useCart((state) => state.deleteItemFromCart);
 
   const handleAddingCountInCart = (count: number) => {
-    setCount(count)
-    updateItemInCart(card.size, count, card.id)
-  }
+    setCount(count);
+    updateItemInCart(card.size, count, card.id);
+  };
 
   return (
     <div
@@ -60,5 +61,5 @@ export const ClothesCard: React.FC<Props> = ({ card, className }) => {
         <Counter number={count} setNumber={handleAddingCountInCart} />
       </div>
     </div>
-  )
-}
+  );
+};

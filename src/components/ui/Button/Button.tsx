@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from '@/utils/utils';
+import { cn } from '@/shared/utils/utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: 'black' | 'white';

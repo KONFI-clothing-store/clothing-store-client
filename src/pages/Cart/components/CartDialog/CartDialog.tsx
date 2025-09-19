@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/Dialog/dialog';
 import { Input } from '@/components/ui/input';
 
-import { useCart } from '@/zustand/cart';
+import { useCart } from '@/core/zustand/cart';
 
 import { CartSelect } from '../CartSelect/CartSelect';
 import { submitForm } from './utils/submitForm';

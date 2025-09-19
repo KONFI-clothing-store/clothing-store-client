@@ -1,4 +1,4 @@
-import { supabase } from '@/services/supabase';
+import { supabase } from '@/shared/services/supabase';
 
 import { ProductFilterType } from '../types/product.types';
 

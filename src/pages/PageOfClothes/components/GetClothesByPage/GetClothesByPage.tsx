@@ -4,9 +4,9 @@ import { useLocation, useParams } from 'react-router-dom';
 import cn from 'classnames';
 
 import { apiClient } from '@/api/apiClient';
+import { useFilter } from '@/core/zustand/filter';
 import { ProductCard } from '@/features/products/components/ui/ProductCard/ProductCard';
 import { ProductCardType } from '@/features/products/types/product.types';
-import { useFilter } from '@/zustand/filter';
 
 import { LIST_OF_URL } from './constants/listOfUrl';
 import { useClothesFilter } from './hooks/useClothesFilter';

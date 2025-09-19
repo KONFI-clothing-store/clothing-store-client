@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button/Button';
 import { ChooseSize } from '@/components/ui/ChooseSize/ChooseSize';
 import { Rating } from '@/components/ui/Rating/Rating';
 
-import { useCart } from '@/zustand/cart';
+import { useCart } from '@/core/zustand/cart';
 
 import { ShowImages } from './components';
 

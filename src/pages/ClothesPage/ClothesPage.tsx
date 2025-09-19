@@ -5,8 +5,8 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb/Breadcrumb';
 import { Container } from '@/components/ui/Container/Container';
 
 import { apiClient } from '@/api/apiClient';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { cn } from '@/utils/utils';
+import { useScrollToTop } from '@/shared/hooks/useScrollToTop';
+import { cn } from '@/shared/utils/utils';
 
 import { ClothesItem, CommentsItem } from './components';
 import { ClothesItemType } from './components/ClothesItem/ClothesItem.types';

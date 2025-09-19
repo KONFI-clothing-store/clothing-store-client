@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-import cn from 'classnames'
+import cn from 'classnames';
 
-import { useFilter } from '@/zustand/filter'
+import { useFilter } from '@/core/zustand/filter';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export const ChoosePrice: React.FC<Props> = ({ className }) => {
-  const [fromInputValue, setFromInputValue] = React.useState<string>('')
-  const [toInputValue, setToInputValue] = React.useState<string>('')
+  const [fromInputValue, setFromInputValue] = React.useState<string>('');
+  const [toInputValue, setToInputValue] = React.useState<string>('');
 
-  const addPriceToFilter = useFilter((state) => state.addPriceToFilter)
+  const addPriceToFilter = useFilter((state) => state.addPriceToFilter);
 
   React.useEffect(() => {
     if (
@@ -20,9 +20,9 @@ export const ChoosePrice: React.FC<Props> = ({ className }) => {
       toInputValue !== '' &&
       toInputValue >= fromInputValue
     ) {
-      addPriceToFilter(Number(fromInputValue), Number(toInputValue))
+      addPriceToFilter(Number(fromInputValue), Number(toInputValue));
     }
-  }, [fromInputValue, toInputValue])
+  }, [fromInputValue, toInputValue]);
 
   return (
     <div className={cn(className, '')}>
@@ -54,5 +54,5 @@ export const ChoosePrice: React.FC<Props> = ({ className }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

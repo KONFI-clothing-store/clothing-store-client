@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { Breadcrumb } from '@/components/ui/Breadcrumb/Breadcrumb';
 import { Container } from '@/components/ui/Container/Container';
 
-import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { useScrollToTop } from '@/shared/hooks/useScrollToTop';
 
 import { Filter, FilterBar, GetClothesByPage } from './components';
 

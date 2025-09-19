@@ -1,19 +1,19 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 export type ClothesCardType = {
-  id: number
-  name: string
-  size: string
-  price: number
-  img_url: string
-  quantity: number
-  totalSumOfItem: number
-}
+  id: number;
+  name: string;
+  size: string;
+  price: number;
+  img_url: string;
+  quantity: number;
+  totalSumOfItem: number;
+};
 
 type State = {
-  clothesCards: ClothesCardType[]
-  totalSum: number
-}
+  clothesCards: ClothesCardType[];
+  totalSum: number;
+};
 
 type Actions = {
   addItemToCart: (
@@ -23,12 +23,12 @@ type Actions = {
     img_url: string,
     quantity: number,
     id: number,
-  ) => void
-  updateItemInCart: (size: string, addQuantity: number, id: number) => void
-  deleteItemFromCart: (id: number, size: string) => void
-  calculationOfTotalSum: () => void
-  clearAllCart: () => void
-}
+  ) => void;
+  updateItemInCart: (size: string, addQuantity: number, id: number) => void;
+  deleteItemFromCart: (id: number, size: string) => void;
+  calculationOfTotalSum: () => void;
+  clearAllCart: () => void;
+};
 
 export const useCart = create<State & Actions>((set) => ({
   clothesCards: [],
@@ -44,7 +44,7 @@ export const useCart = create<State & Actions>((set) => ({
     set((state) => {
       const indexOfElement = state.clothesCards.findIndex(
         (item) => item.id === id && item.size === size,
-      )
+      );
 
       if (indexOfElement > -1) {
         const updateClothesCards = state.clothesCards.map((item) => {
@@ -55,13 +55,13 @@ export const useCart = create<State & Actions>((set) => ({
                   state.clothesCards[indexOfElement].quantity + quantity,
                 totalSumOfItem: item.quantity * item.price,
               }
-            : item
-        })
+            : item;
+        });
 
         return {
           totalSum: state.totalSum + quantity * price,
           clothesCards: updateClothesCards,
-        }
+        };
       }
 
       return {
@@ -78,7 +78,7 @@ export const useCart = create<State & Actions>((set) => ({
             totalSumOfItem: quantity * price,
           },
         ],
-      }
+      };
     }),
   updateItemInCart: (size: string, quantity: number, id: number) =>
     set((state) => {
@@ -89,43 +89,43 @@ export const useCart = create<State & Actions>((set) => ({
               quantity,
               totalSumOfItem: item.quantity * item.price,
             }
-          : item
-      })
+          : item;
+      });
 
       const indexOfElement = state.clothesCards.findIndex(
         (el) => el.id === id && el.size === size,
-      )
+      );
 
       const differenceBetweenQuantities =
-        quantity - state.clothesCards[indexOfElement].quantity
+        quantity - state.clothesCards[indexOfElement].quantity;
 
       const newTotalSum =
         differenceBetweenQuantities > 0
           ? state.totalSum + Number(state.clothesCards[indexOfElement].price)
-          : state.totalSum - state.clothesCards[indexOfElement].price
+          : state.totalSum - state.clothesCards[indexOfElement].price;
 
       return {
         totalSum: newTotalSum,
         clothesCards: updateClothesCards,
-      }
+      };
     }),
   deleteItemFromCart: (id: number, size: string) =>
     set((state) => {
       const newCards = state.clothesCards.filter((item) => {
-        return item.id !== id || item.size !== size
-      })
-      console.log('newCards:', newCards)
+        return item.id !== id || item.size !== size;
+      });
+      console.log('newCards:', newCards);
 
       const newTotalSum = newCards.reduce(
         (acc, card) => acc + Number(card.price),
         0,
-      )
-      console.log(newTotalSum)
+      );
+      console.log(newTotalSum);
 
       return {
         totalSum: newTotalSum,
         clothesCards: [...newCards],
-      }
+      };
     }),
 
   calculationOfTotalSum: () =>
@@ -134,14 +134,14 @@ export const useCart = create<State & Actions>((set) => ({
         (prevValue, cardCur) =>
           prevValue + cardCur.totalSumOfItem * cardCur.quantity,
         0,
-      )
+      );
       return {
         totalSum,
-      }
+      };
     }),
   clearAllCart: () =>
     set({
       clothesCards: [],
       totalSum: 0,
     }),
-}))
+}));

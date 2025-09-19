@@ -3,7 +3,7 @@ import * as React from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { X } from 'lucide-react';
 
-import { cn } from '@/utils/utils';
+import { cn } from '@/shared/utils/utils';
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 
 const Sheet = SheetPrimitive.Root;

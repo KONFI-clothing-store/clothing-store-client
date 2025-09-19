@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Breadcrumb } from '@/components/ui/Breadcrumb/Breadcrumb';
 import { Container } from '@/components/ui/Container/Container';
 
-import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { useCart } from '@/zustand/cart';
+import { useCart } from '@/core/zustand/cart';
+import { useScrollToTop } from '@/shared/hooks/useScrollToTop';
 
 import { CartDialog, ClothesCard } from './components';
 

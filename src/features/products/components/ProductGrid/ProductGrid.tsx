@@ -1,4 +1,4 @@
-import { cn } from '@/utils/utils';
+import { cn } from '@/shared/utils/utils';
 
 import { ProductCardType } from '../../types/product.types';
 import { ProductCard } from '../ui/ProductCard/ProductCard';

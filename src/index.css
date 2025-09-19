@@ -1,5 +1,5 @@
-@import 'src/styles/integral_cf-font.css';
-@import 'src/styles/satoshi-font.css';
+@import 'src/core/styles/integral_cf-font.css';
+@import 'src/core/styles/satoshi-font.css';
 
 @tailwind base;
 @tailwind components;
